@@ -32,7 +32,21 @@ I am currently pursuing a Master’s in Statistics at [Uppsala University](https
 
 I hold a BSc in Statistics and Economics and have worked as a teaching assistant at the Department of Statistics at [Lund University](https://www.lunduniversity.lu.se/), where I assisted in undergraduate courses. 
 
-<div style="text-align: right;">
-    <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="50px">
-    <p>BSc in Statistics & Economics</p>
+## Education
+
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <div>
+        <p><strong>MSc in Statistics</strong></p>
+        <p><a href="https://www.uu.se/en">Uppsala University</a></p>
+    </div>
+    <img src="{{ '/assets/img/uppsala.png' | relative_url }}" alt="Uppsala University Logo" width="60px">
 </div>
+
+<div style="display: flex; align-items: center; justify-content: space-between;">
+    <div>
+        <p><strong>BSc in Statistics & Economics</strong></p>
+        <p><a href="https://www.lunduniversity.lu.se/">Lund University</a></p>
+    </div>
+    <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="60px">
+</div>
+
