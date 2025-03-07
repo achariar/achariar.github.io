@@ -34,6 +34,18 @@ I hold a BSc in Statistics and Economics and have worked as a teaching assistant
 
 ## Education
 
+<div style="display: flex; align-items: center; gap: 15px;">
+    <img src="{{ '/assets/img/uppsala.png' | relative_url }}" alt="Uppsala University Logo" width="50px">
+    <p><a href="https://www.uu.se/en"><strong>Uppsala University</strong></a> — MSc in Statistics</p>
+</div>
+
+<div style="display: flex; align-items: center; gap: 15px;">
+    <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="50px">
+    <p><a href="https://www.lunduniversity.lu.se/"><strong>Lund University</strong></a> — BSc in Statistics & Economics</p>
+</div>
+
+## Education
+
 <div style="display: flex; align-items: center; justify-content: space-between;">
     <div>
         <p><strong>MSc in Statistics</strong></p>
