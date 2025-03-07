@@ -11,7 +11,7 @@ profile:
   more_info: >
   <p>
     <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="50px">
-    BSc in Statistics
+    BSc in Statistics and Economics
   </p>
   
 selected_papers: true # includes a list of papers marked as "selected={true}"
