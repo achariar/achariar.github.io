@@ -8,8 +8,11 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-more_info: >
-    <p>Hello</p>
+  more_info: >
+    <p>Room 2.2</p>
+    <p>The&nbsp;Keith&nbsp;Peters&nbsp;Building</p>
+    <p>Cambridge&nbsp;Biomedical&nbsp;Campus</p>
+    <p>Cambridge, UK - CB2 0XY</p>
 
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
