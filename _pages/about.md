@@ -8,12 +8,14 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
- more_info: "  
-  <p>  
-    <img src='{{ '/assets/img/lund.png' | relative_url }}' alt='Lund University Logo' width='30px'>  
-    BSc in Statistics  
-  </p>  
-"
+ more_info: >
+  <p>
+    <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="30px">
+    BSc in Statistics
+  </p>
+
+
+ 
   
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
