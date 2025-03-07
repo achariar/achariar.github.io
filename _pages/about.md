@@ -43,3 +43,23 @@ I hold a BSc in Statistics and Economics and have worked as a teaching assistant
     <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="50px">
     <p><a href="https://www.lunduniversity.lu.se/"><strong>Lund University</strong></a> — BSc in Statistics & Economics</p>
 </div>
+
+## Education
+
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+    <img src="{{ '/assets/img/uppsala.png' | relative_url }}" alt="Uppsala University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
+    <div>
+        <p><strong>Uppsala University</strong></p>
+        <p>MSc in Statistics, 2023–Present</p>
+    </div>
+</div>
+
+<div style="display: flex; align-items: center; margin-bottom: 15px;">
+    <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
+    <div>
+        <p><strong>Lund University</strong></p>
+        <p>BSc in Statistics & Economics, 2020–2023</p>
+        <p>Teaching Assistant, 2021–2023</p>
+    </div>
+</div>
+
