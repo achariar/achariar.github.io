@@ -29,13 +29,12 @@ I am currently pursuing a Master’s degree in Statistics at [Uppsala University
 
 I hold a BSc in Statistics and Economics and previously worked as a teaching assistant at the Department of Statistics at [Lund University](https://www.lunduniversity.lu.se/), where I assisted in undergraduate courses. My research interests focus on macroeconomics, particularly DSGE modeling. I am currently working on developing DSGE models in Julia. More details can be found on the `projects` page. If you would like to get in touch, feel free to contact me. 
 
-### Education
-
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
     <img src="{{ '/assets/img/uppsala.png' | relative_url }}" alt="Uppsala University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Uppsala University</strong></p>
         <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025–Present</p>
+        <p style="margin: 2px 0; line-height: 1.2;">Coursework in Sanskrit</p>
     </div>
 </div>
 
@@ -48,5 +47,23 @@ I hold a BSc in Statistics and Economics and previously worked as a teaching ass
     </div>
 </div>
 
+```julia
+function cobb_douglas(A, K, L, alpha, beta)
+    """
+    Cobb-Douglas production function
+    Y = A * K^alpha * L^beta
+    """
+    return A * (K^alpha) * (L^beta)
+end
 
+# Example usage
+A = 1.2  # Total Factor Productivity (TFP)
+K = 100  # Capital
+L = 200  # Labor
+alpha = 0.3
+beta = 0.7
+
+output = cobb_douglas(A, K, L, alpha, beta)
+println("Output (Y): ", output)
+```
 
