@@ -47,3 +47,12 @@ I hold a BSc in Statistics and Economics and previously worked as a teaching ass
     </div>
 </div>
 
+```julia
+function cobb_douglas(A, K, L, alpha, beta)
+    """
+    Cobb-Douglas production function
+    Y = A * K^alpha * L^beta
+    """
+    return A * (K^alpha) * (L^beta)
+end
+```
