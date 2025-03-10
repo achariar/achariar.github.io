@@ -35,8 +35,8 @@ Beyond academia, I am deeply interested in anthropology and South Indian classic
     <img src="{{ '/assets/img/uppsala.png' | relative_url }}" alt="Uppsala University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Uppsala University</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">PhD in Economics, 2027–2032</p>
-        <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025–2027</p>
+        <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025–Present</p>
+        <p style="margin: 2px 0; line-height: 1.2;">Coursework in Sanskrit</p>
     </div>
 </div>
 
