@@ -36,7 +36,7 @@ Beyond academia, I am deeply interested in anthropology and South Indian classic
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Uppsala University</strong></p>
         <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025–Present</p>
-        <p style="margin: 2px 0; line-height: 1.2;">Coursework in Sanskrit</p>
+        <p style="margin: 2px 0; line-height: 1.2;">Teaching Assistant, 2026-Present</p>
     </div>
 </div>
 
@@ -44,8 +44,8 @@ Beyond academia, I am deeply interested in anthropology and South Indian classic
     <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Lund University</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">BSc in Economics, 2024–2025</p>
-        <p style="margin: 2px 0; line-height: 1.2;">BSc in Statistics, 2020–2024</p>
+        <p style="margin: 2px 0; line-height: 1.2;">BSc in Statistics, 2024–2025</p>
+        <p style="margin: 2px 0; line-height: 1.2;">Teaching Assistant, 2024-2025</p>
     </div>
 </div>
 
