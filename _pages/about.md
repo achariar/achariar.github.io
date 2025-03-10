@@ -32,20 +32,11 @@ I hold a BSc in Statistics and Economics and previously worked as a teaching ass
 Beyond academia, I am deeply interested in anthropology and South Indian classical music. I play the saxophone and enjoy playing jazz and movie soundtracks. I also love reading and writing sci-fi novels.  
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-    <img src="{{ '/assets/img/copenhagen.png' | relative_url }}" alt="Copenhagen University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
-    <div style="display: flex; flex-direction: column; gap: 2px;">
-        <p style="margin: 2px 0; line-height: 1.2;"><strong>University of Copenhagen</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">PhD in Economics, 2028–Present</p>
-        <p style="margin: 2px 0; line-height: 1.2;">Coursework in Sanskrit</p>
-    </div>
-</div>
-
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
     <img src="{{ '/assets/img/uppsala.png' | relative_url }}" alt="Uppsala University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Uppsala University</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025–Present</p>
-        <p style="margin: 2px 0; line-height: 1.2;">Coursework in Sanskrit</p>
+        <p style="margin: 2px 0; line-height: 1.2;">PhD in Economics, 2027–2032</p>
+        <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025–2027</p>
     </div>
 </div>
 
