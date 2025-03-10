@@ -36,7 +36,7 @@ Beyond academia, I am deeply interested in anthropology and South Indian classic
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Uppsala University</strong></p>
         <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025–Present</p>
-        <p style="margin: 2px 0; line-height: 1.2;">Teaching Assistant, 2026-Present</p>
+        <p style="margin: 2px 0; line-height: 1.2;">Teaching Assistant</p>
     </div>
 </div>
 
