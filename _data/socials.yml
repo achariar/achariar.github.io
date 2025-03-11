@@ -30,7 +30,7 @@ orcid_id: https://orcid.org/0009-0000-9622-5463 # your ORCID ID
 # quora_username: # your Quora username
 # research_gate_profile: # your profile on ResearchGate
 # rss_icon: false # set to true to show the RSS icon
-# scholar_userid: qc6CJjYAAAAJ # your Google Scholar ID
+scholar_userid: pwoBFFEAAAAJ # your Google Scholar ID
 # scopus_id: # your profile on Scopus
 # semanticscholar_id: # your Semantic Scholar ID
 # spotify_id: # your spotify id
@@ -43,7 +43,7 @@ orcid_id: https://orcid.org/0009-0000-9622-5463 # your ORCID ID
 # wikipedia_id: # your wikipedia id (Case sensitive)
 # work_url: # work page URL
 # x_username: # your X handle
-# youtube_id: # your youtube channel id (youtube.com/@<youtube_id>)
+youtube_id: ramani.jonathan # your youtube channel id (youtube.com/@<youtube_id>)
 # zotero_username: # your zotero username
 # custom_social: # can be any name here other than the ones already defined above
   # logo: https://www.alberteinstein.com/wp-content/uploads/2024/03/cropped-favicon-192x192.png # can be png, svg, jpg
