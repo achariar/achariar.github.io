@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Department of Statistics, <a href='#'>Uppsala University</a>.
+subtitle: Department of Statistics, <a href='#'>Stockholm University</a>.
 
 profile:
   align: right
@@ -25,7 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am currently pursuing a Master’s degree in Statistics at [Uppsala University](https://www.uu.se/en), with a strong interest in macroeconomics, asset pricing, and econometrics. This page includes my `curriculum vitae`, `research`, and `academic resources`.
+I am currently pursuing a Master’s degree in Statistics at [Stockholm University](https://www.uu.se/en), with a strong interest in macroeconomics, asset pricing, and econometrics. This page includes my `curriculum vitae`, `research`, and `academic resources`.
 
 I hold a BSc in Statistics and Economics and previously worked as a teaching assistant at the Department of Statistics at [Lund University](https://www.lunduniversity.lu.se/), where I assisted in undergraduate courses. My research interests focus on macroeconomics, particularly DSGE modeling. I am currently working on developing DSGE models in Julia. More details can be found on the `projects` page. If you would like to get in touch, feel free to contact me. 
 
