@@ -32,16 +32,7 @@ I hold a BSc in Statistics and Economics and previously worked as a teaching ass
 Beyond academia, I am deeply interested in anthropology and South Indian classical music. I play the saxophone and enjoy playing jazz and movie soundtracks. I also love reading and writing sci-fi novels.  
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-    <img src="{{ '/assets/img/azu.png' | relative_url }}" alt="Uppsala University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
-    <div style="display: flex; flex-direction: column; gap: 2px;">
-        <p style="margin: 2px 0; line-height: 1.2;"><strong>Arizona State University</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">PhD in Economics, 2027–2032</p>
-        <p style="margin: 2px 0; line-height: 1.2;">Visiting Student at University of Chicago</p>
-    </div>
-</div>
-
-<div style="display: flex; align-items: center; margin-bottom: 10px;">
-    <img src="{{ '/assets/img/stockholm.png' | relative_url }}" alt="Uppsala University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
+    <img src="{{ '/assets/img/stockholm.png' | relative_url }}" alt="Stockholm University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Stockholm University</strong></p>
         <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025–2027</p>
@@ -53,7 +44,7 @@ Beyond academia, I am deeply interested in anthropology and South Indian classic
     <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Lund University</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">BSc in Statistics & Economics, 2021–2025</p>
+        <p style="margin: 2px 0; line-height: 1.2;">BSc in Statistics, 2021–2025</p>
         <p style="margin: 2px 0; line-height: 1.2;">Teaching Assistant in Statistics</p>
     </div>
 </div>
