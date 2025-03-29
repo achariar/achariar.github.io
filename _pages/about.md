@@ -32,7 +32,7 @@ I hold a BSc in Statistics and Economics and previously worked as a teaching ass
 Beyond academia, I am deeply interested in anthropology and South Indian classical music. I play the saxophone and enjoy playing jazz and movie soundtracks. I also love reading and writing sci-fi novels.  
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-    <img src="{{ '/assets/img/stockholm.png' | relative_url }}" alt="Stockholm University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
+    <img src="{{ '/assets/img/chicago.png' | relative_url }}" alt="Chicago University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>University of Chicago</strong></p>
         <p style="margin: 2px 0; line-height: 1.2;">PhD in Economics, 2028–Present</p>
