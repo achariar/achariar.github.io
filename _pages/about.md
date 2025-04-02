@@ -35,7 +35,7 @@ Beyond academia, I am deeply interested in anthropology and South Indian classic
     <img src="{{ '/assets/img/stockholm.png' | relative_url }}" alt="Stockholm University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Stockholm University</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2027</p>
+        <p style="margin: 2px 0; line-height: 1.2;">MSc in Statistics, 2025―Present</p> 
         <p style="margin: 2px 0; line-height: 1.2;">Teaching Assistant in Statistics</p>
     </div>
 </div>
