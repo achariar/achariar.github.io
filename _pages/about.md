@@ -32,11 +32,11 @@ I hold a BSc in Statistics and Economics and previously worked as a teaching ass
 Beyond academia, I am deeply interested in anthropology and South Indian classical music. I play the saxophone and enjoy playing jazz and movie soundtracks. I also love reading and writing sci-fi novels.  
 
 <div style="display: flex; align-items: center; margin-bottom: 10px;">
-    <img src="{{ '/assets/img/stockholm.png' | relative_url }}" alt="Stockholm University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
+    <img src="{{ '/assets/img/uppsala.png' | relative_url }}" alt="Uppsala University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
-        <p style="margin: 2px 0; line-height: 1.2;"><strong>Stockholm University</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">PhD in Statistics, 2027―Present</p> 
-        <p style="margin: 2px 0; line-height: 1.2;">MS in Statistics, 2025―2027</p>
+        <p style="margin: 2px 0; line-height: 1.2;"><strong>Uppsala University</strong></p>
+        <p style="margin: 2px 0; line-height: 1.2;">MS in Statistics, 2026―Present</p> 
+        <p style="margin: 2px 0; line-height: 1.2;">Teaching Assistant</p>
     </div>
 </div>
 
@@ -44,8 +44,8 @@ Beyond academia, I am deeply interested in anthropology and South Indian classic
     <img src="{{ '/assets/img/lund.png' | relative_url }}" alt="Lund University Logo" width="70px" style="border-radius: 50%; margin-right: 15px;">
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Lund University</strong></p>
-        <p style="margin: 2px 0; line-height: 1.2;">BS in Statistics & Economics, 2025</p>
-        <p style="margin: 2px 0; line-height: 1.2;">Teaching Assistant in Statistics</p>
+        <p style="margin: 2px 0; line-height: 1.2;">BS in Economics, 2026</p>
+        <p style="margin: 2px 0; line-height: 1.2;">BS in Statistics, 2024</p>
     </div>
 </div>
 
