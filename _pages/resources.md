@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /publications/
+permalink: /resources/
 title: resources 
 description: resources by categories in reversed chronological order. 
 nav: true
@@ -11,10 +11,3 @@ nav_order: 4
 
 <!-- Bibsearch Feature -->
 
-{% include bib_search.liquid %}
-
-<div class="publications">
-
-{% bibliography %}
-
-</div>
