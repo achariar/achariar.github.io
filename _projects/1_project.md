@@ -8,74 +8,156 @@ category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+# Julia Essentials
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+This project adapts content from QuantEcon’s [Julia Essentials](https://quantecon.org/) course.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+## Overview
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+Topics covered include:
 
-You can also put regular text between your rows of images, even citations {% cite einstein1950meaning %}.
-Say you wanted to write a bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+- Common data types
+- Iteration
+- User-defined functions
+- Logic and comparisons
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## Setup
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
-
-{% raw %}
-
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
+```julia
+using LinearAlgebra, Statistics, Plots
 ```
 
-{% endraw %}
+## Data Types
+
+```julia
+x = true
+typeof(x)
+
+y = 1 > 2  # false
+
+typeof(1.0)
+typeof(1)
+```
+
+## Arithmetic
+
+```julia
+x = 2
+y = 1.0
+
+x * y
+x^2
+y / x
+2x - 3y
+@show 2x - 3y
+@show x + y;
+```
+
+## Complex Numbers
+
+```julia
+x = 1 + 2im
+y = 1 - 2im
+x * y
+```
+
+## Strings
+
+```julia
+x = "foobar"
+typeof(x)
+
+x = 10
+y = 20
+"x = $x"
+"x + y = $(x + y)"
+"foo" * "bar"
+
+s = "Charlie don't surf"
+split(s)
+replace(s, "surf" => "ski")
+split("fee,fi,fo", ",")
+strip(" foobar ")
+match(r"(\d+)", "Top 10")
+```
+
+## Tuples and Dictionaries
+
+```julia
+x = ("foo", "bar")
+y = ("foo", 2)
+typeof(x), typeof(y)
+
+x = "foo", 1
+word, val = x
+println("word = $word, val = $val")
+
+d = Dict("name" => "Frodo", "age" => 33)
+d["age"]
+```
+
+## Iteration
+
+```julia
+actions = ["surf", "ski"]
+for action in actions
+    println("Charlie doesn't $action")
+end
+
+for i in 1:3
+    print(i)
+end
+
+d = Dict("name" => "Frodo", "age" => 33)
+collect(keys(d))
+```
+
+## Comprehensions
+
+```julia
+doubles = [2i for i in 1:4]
+animals = ["dog", "cat", "bird"]
+plurals = [animal * "s" for animal in animals]
+[i + j for i in 1:3, j in 4:6]
+```
+
+## Functions
+
+```julia
+function f1(a, b)
+    return a * b
+end
+
+function f2(a, b)
+    a * b
+end
+
+foo(x) = x > 0 ? "positive" : "nonpositive"
+```
+
+## Broadcasting
+
+```julia
+x_vec = [2.0, 4.0, 6.0, 8.0]
+y_vec = sin.(x_vec)
+```
+
+## Closures
+
+```julia
+a = 0.2
+f(x) = a * x^2
+f(1)
+```
+
+## Final Example
+
+```julia
+function solve_model(x)
+    a = x^2
+    b = 2 * a
+    c = a + b
+    return (; a, b, c)
+end
+solve_model(0.1)
+```
