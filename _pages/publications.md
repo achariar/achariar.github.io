@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 title: research 
 description: research by categories in reversed chronological order. 
-nav: true
+nav: fasle
 nav_order: 2
 ---
 
