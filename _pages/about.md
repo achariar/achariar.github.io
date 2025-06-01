@@ -25,7 +25,7 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am currently pursuing a Master’s degree in Statistics at [Stockholm University]([https://www.uu.se/en](https://www.su.se/department-of-statistics/)), with a strong interest in macroeconomics, asset pricing, and econometrics. This page includes my `curriculum vitae`, `research`, and `academic resources`.
+I am currently pursuing a Master’s degree in Statistics at [Stockholm University](https://www.su.se/), with a strong interest in macroeconomics, asset pricing, and econometrics. This page includes my `curriculum vitae`, `research`, and `academic resources`.
 
 I am currently pursuing a Master’s degree in Statistics at [Stockholm University](https://www.su.se/department-of-statistics/), with a strong interest in macroeconomics, asset pricing, and econometrics. This page includes my [`curriculum vitae`](https://achariar.github.io/assets/pdf/resume.pdf), [`research`](https://achariar.github.io/publications/), and [`academic resources`](https://achariar.github.io/resources/).
 
