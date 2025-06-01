@@ -3,7 +3,7 @@ layout: page
 permalink: /resources/
 title: resources 
 description: resources by categories in reversed chronological order. 
-nav: true
+nav: false
 nav_order: 4
 ---
 
