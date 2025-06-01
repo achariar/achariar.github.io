@@ -6,7 +6,12 @@ img: assets/img/12.jpg
 importance: 1
 category: work
 related_publications: true
+authors:
+  - Jesse Perla
+  - Thomas J. Sargent
+  - John Stachurski
 ---
+
 
 # Julia Essentials
 
