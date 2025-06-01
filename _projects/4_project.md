@@ -1,80 +1,50 @@
 ---
 layout: page
 title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+description: Optimal Growth Model via QuantEcon
+img: assets/img/12.jpg
+importance: 4
+category: work
+related_publications: true
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+kernelspec:
+  display_name: Julia
+  language: julia
+  name: julia-1.11
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+# Optimal Growth I: The Stochastic Optimal Growth Model
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+This project is based on the QuantEcon lecture: [Optimal Growth I](https://python.quantecon.org/optimal_growth_model.html), adapted for Julia.
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+It covers:
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+- Dynamic programming in stochastic environments
+- Policy function approaches
+- The Bellman equation and operator
+- Fitted value function iteration
+- Computational techniques using Julia
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+The full lecture includes mathematical exposition, algorithmic implementation, and simulation results. For full interactivity, see the [QuantEcon Julia lectures](https://julia.quantecon.org/).
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+## Example Code Snippet (Julia)
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+```julia
+using LinearAlgebra, Statistics, Plots
 
-{% raw %}
+f(x) = 2 .* cos.(6x) .+ sin.(14x) .+ 2.5
+c_grid = 0:0.2:1
+f_grid = range(0, 1, length = 150)
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
+Af = LinearInterpolation(c_grid, f(c_grid))
+
+plt = plot(xlim = (0, 1), ylim = (0, 6))
+plot!(plt, f, f_grid, lw = 2, label = "true function")
+plot!(plt, f_grid, Af.(f_grid), lw = 2, label = "linear approximation")
+plot!(plt, legend = :top)
 ```
 
-{% endraw %}
+For the complete interactive notebook and mathematical details, see [QuantEcon - Optimal Growth Model](https://julia.quantecon.org/dynamic_programming/optimal_growth_model.html).
