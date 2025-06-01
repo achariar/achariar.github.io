@@ -14,6 +14,8 @@ authors:
 
 # Project 5: A Simple Model in Asset Pricing
 
+<span style="font-size: 0.9em; color: gray;">Jesse Perla, Thomas J. Sargent, and John Stachurski</span>
+
 This research project presents a stylized model of asset pricing in discrete time. We use standard methods in macro-finance, including consumption-based asset pricing, stochastic discount factors, and numerical simulation.
 
 ## 1. Model Overview
