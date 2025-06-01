@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Department of Statistics, <a href='#'>Stockholm University</a>.
+subtitle: Department of Statistics, Stockholm University.
 
 profile:
   align: right
