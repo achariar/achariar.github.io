@@ -427,8 +427,8 @@ ninja.data = [{
           description: "Optimal Growth Model via QuantEcon",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
-            },},{id: "projects-project-5",
-          title: 'project 5',
+            },},{id: "projects-the-capm",
+          title: 'The CAPM',
           description: "with background image",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_project/";
