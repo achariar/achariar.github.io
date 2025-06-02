@@ -412,12 +412,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-project-2",
-          title: 'project 2',
-          description: "with background image",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/2_project/";
-            },},{id: "projects-project-4",
+          section: "News",},{id: "projects-project-4",
           title: 'project 4',
           description: "Optimal Growth Model via QuantEcon",
           section: "Projects",handler: () => {
