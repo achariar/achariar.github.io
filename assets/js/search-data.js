@@ -393,7 +393,7 @@ ninja.data = [{
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2015/formatting-and-links/";
+          window.location.href = "/posts/";
         
       },
     },{id: "books-the-godfather",
@@ -412,12 +412,7 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-project-4",
-          title: 'project 4',
-          description: "Optimal Growth Model via QuantEcon",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/4_project/";
-            },},{id: "projects-the-capm",
+          section: "News",},{id: "projects-the-capm",
           title: 'The CAPM',
           description: "with background image",
           section: "Projects",handler: () => {
