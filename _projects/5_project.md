@@ -1,97 +1,93 @@
 ---
 layout: page
-title: project 5
+title: The CAPM
 description: with background image
 img: assets/img/12.jpg
 importance: 1
 category: work
 related_publications: true
 authors:
-  - Jesse Perla
-  - Thomas J. Sargent
-  - John Stachurski
+  - Jonathan K. Ramani 
 ---
 
 # Project 5: A Simple Model in Asset Pricing
 
-<span style="font-size: 0.9em; color: gray;">Jesse Perla, Thomas J. Sargent, and John Stachurski</span>
+<span style="font-size: 0.9em; color: gray;">Jonathan K. Ramani</span>
 
-This research project presents a stylized model of asset pricing in discrete time. We use standard methods in macro-finance, including consumption-based asset pricing, stochastic discount factors, and numerical simulation.
+---
 
-## 1. Model Overview
+## Overview
 
-We consider a representative agent with power utility over consumption:
+This project introduces and explains the **Capital Asset Pricing Model (CAPM)** — a fundamental framework in financial economics used to understand the relationship between risk and expected return. CAPM provides a simple but powerful formula to price risky securities and is widely used by investors and financial analysts.
 
-$$
-u(c_t) = \frac{c_t^{1 - \gamma}}{1 - \gamma}, \quad \gamma > 0
-$$
+---
 
-The agent discounts the future at a constant rate \( \beta \in (0, 1) \). The endowment \( y_t \) follows a log-normal process:
+## What is CAPM?
 
-$$
-\log y_{t+1} = \log y_t + \mu + \sigma \varepsilon_{t+1}, \quad \varepsilon_{t+1} \sim \mathcal{N}(0, 1)
-$$
+The **Capital Asset Pricing Model** states that the expected return of a security is equal to the risk-free rate plus a risk premium. The formula is given by:
 
-The stochastic discount factor (SDF) \( m_{t+1} \) is given by:
+\[
+E(R_i) = R_f + \beta_i (E(R_m) - R_f)
+\]
 
-$$
-m_{t+1} = \beta \left(\frac{c_{t+1}}{c_t}\right)^{-\gamma}
-$$
+Where:
+- \( E(R_i) \): Expected return of asset *i*
+- \( R_f \): Risk-free rate
+- \( \beta_i \): Beta of the asset (a measure of systematic risk)
+- \( E(R_m) \): Expected return of the market portfolio
 
-Assuming \( c_t = y_t \), asset prices can be computed as expectations over future payoffs discounted by the SDF.
+---
 
-## 2. Pricing a Risk-Free Asset
+## Key Concepts
 
-The price of a one-period risk-free bond \( q^f_t \) is:
+- **Risk-Free Rate**: The return on an investment with zero risk, typically government bonds.
+- **Market Risk Premium**: \( E(R_m) - R_f \), the excess return expected from the market over the risk-free rate.
+- **Beta (\( \beta \))**: A measure of an asset’s sensitivity to market movements. 
+  - \( \beta = 1 \): asset moves with the market.
+  - \( \beta > 1 \): asset is more volatile than the market.
+  - \( \beta < 1 \): asset is less volatile.
 
-$$
-q^f_t = \mathbb{E}_t[m_{t+1}]
-$$
+---
 
-Using log-normality and log utility (\( \gamma = 1 \)), we get an analytical expression:
+## Assumptions of CAPM
 
-$$
-\log q^f_t = \log \beta + (1 - \gamma) \mu + \frac{1}{2} (1 - \gamma)^2 \sigma^2
-$$
+1. Investors are rational and risk-averse.
+2. Markets are efficient.
+3. Investors can borrow and lend at the risk-free rate.
+4. Homogeneous expectations about returns and risks.
+5. Single-period investment horizon.
 
-The corresponding gross risk-free return is \( R^f_t = 1/q^f_t \).
+---
 
-## 3. Pricing an Equity Claim
+## Applications
 
-Consider an equity claim that pays the endowment \( y_{t+1} \) each period. The price \( q^e_t \) is given by:
+- **Portfolio Management**: Identifying undervalued or overvalued assets.
+- **Cost of Equity Calculation**: In corporate finance, CAPM helps compute the cost of equity for discounting cash flows.
+- **Performance Evaluation**: Comparing actual returns to those predicted by CAPM.
 
-$$
-q^e_t = \mathbb{E}_t[m_{t+1} y_{t+1}]
-$$
+---
 
-Using log-normal properties, and \( \log y_{t+1} \sim \mathcal{N}(\log y_t + \mu, \sigma^2) \), we can derive:
+## Limitations
 
-$$
-\log q^e_t = \log \beta + (1 - \gamma + 1)\mu + \frac{1}{2}[(1 - \gamma)^2 + 1]\sigma^2 + \log y_t
-$$
+- Relies on assumptions that may not hold in the real world (e.g., perfect markets).
+- Beta is based on historical data and may not predict future risk accurately.
+- Fails to account for unsystematic risk.
 
-This shows that equity is riskier and therefore has a higher expected return.
+---
 
-## 4. Julia Code: Simulating the Model
+## Conclusion
 
-Here is a basic simulation of the model in Julia.
+Despite its limitations, CAPM remains a foundational model in finance. Its simplicity and intuitive appeal make it a cornerstone in understanding how risk affects return. This project outlines the logic behind CAPM and serves as a stepping stone to more advanced asset pricing theories.
 
-```julia
-using Distributions, Random
+---
 
-function simulate_asset_prices(T=100, γ=2.0, β=0.96, μ=0.02, σ=0.1)
-    y = zeros(T)
-    m = zeros(T - 1)
-    qf = zeros(T - 1)
-    ye = zeros(T - 1)
+## Related Work
 
-    y[1] = 1.0
-    for t in 1:T-1
-        ε = rand(Normal(0, 1))
-        y[t+1] = y[t] * exp(μ + σ * ε)
-        m[t] = β * (y[t+1] / y[t])^(-γ)
-        qf[t] = mean(m[t])
-        ye[t] = m[t] * y[t+1]
-    end
-    return qf, ye
-end
+This project draws upon foundational work in financial theory, notably:
+
+- Sharpe, William F. (1964), “Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk.”
+- Lintner, John (1965), “The Valuation of Risk Assets and the Selection of Risky Investments in Stock Portfolios and Capital Budgets.”
+
+---
+
+*Last updated: June 2025*
