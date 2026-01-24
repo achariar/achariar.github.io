@@ -2,7 +2,7 @@
 layout: page
 title: State Capacity and Democratic Legitimacy
 description: A political science analysis of institutional strength, governance, and public trust.
-img: assets/img/13.jpg
+img: assets/img/12.jpg
 importance: 1
 category: thoughts
 related_publications: true
@@ -10,7 +10,7 @@ authors:
   - Jonathan K. Ramani
 ---
 
-# State Capacity and Democratic Legitimacy
+# Project 5: A Simple Model in Asset Pricing
 
 <span style="font-size: 0.9em; color: gray;">Jonathan K. Ramani</span>
 
@@ -18,88 +18,75 @@ authors:
 
 ## Overview
 
-This article examines the relationship between **state capacity** and **democratic legitimacy**, arguing that democratic stability depends not only on electoral procedures but also on the ability of political institutions to effectively govern. Weak state capacity undermines public trust, erodes legitimacy, and increases vulnerability to populism and authoritarian backsliding.
+This project introduces and explains the **Capital Asset Pricing Model (CAPM)** — a fundamental framework in financial economics used to understand the relationship between risk and expected return. CAPM provides a simple but powerful formula to price risky securities and is widely used by investors and financial analysts.
 
 ---
 
-## Defining State Capacity
+## What is CAPM?
 
-**State capacity** refers to the ability of a state to design and implement policies, enforce laws, collect taxes, and provide public goods. It is typically understood across three dimensions:
+The **Capital Asset Pricing Model** states that the expected return of a security is equal to the risk-free rate plus a risk premium. The formula is given by:
 
-- **Administrative capacity**: bureaucratic competence and institutional professionalism  
-- **Fiscal capacity**: ability to raise and allocate revenue  
-- **Coercive capacity**: monopoly over the legitimate use of force  
+\[
+E(R_i) = R_f + \beta_i (E(R_m) - R_f)
+\]
 
-A state may possess democratic institutions while lacking sufficient capacity to carry out their mandates.
-
----
-
-## Democratic Legitimacy
-
-**Democratic legitimacy** arises when citizens accept political authority as rightful. While not reducible to electoral outcomes alone, legitimacy is sustained through:
-
-- Procedural fairness  
-- Policy effectiveness  
-- Responsiveness to public needs  
-
-When democratic governments fail to deliver basic services or enforce laws equitably, legitimacy weakens regardless of electoral legality.
+Where:
+- \( E(R_i) \): Expected return of asset *i*
+- \( R_f \): Risk-free rate
+- \( \beta_i \): Beta of the asset (a measure of systematic risk)
+- \( E(R_m) \): Expected return of the market portfolio
 
 ---
 
-## The Capacity–Legitimacy Link
+## Key Concepts
 
-The relationship between state capacity and legitimacy is recursive:
-
-- High capacity enables policy implementation, reinforcing trust.
-- Low capacity leads to governance failure, fostering disillusionment.
-
-In low-capacity democracies, citizens may perceive elections as symbolic rather than substantive, increasing support for non-democratic alternatives that promise order or efficiency.
-
----
-
-## Empirical Implications
-
-Comparative political research suggests that:
-
-- Democracies with stronger bureaucratic institutions exhibit higher political trust.
-- Weak-capacity states experience higher corruption, tax evasion, and informal governance.
-- Institutional weakness often precedes democratic erosion rather than follows it.
-
-These findings challenge purely procedural definitions of democracy.
+- **Risk-Free Rate**: The return on an investment with zero risk, typically government bonds.
+- **Market Risk Premium**: \( E(R_m) - R_f \), the excess return expected from the market over the risk-free rate.
+- **Beta (\( \beta \))**: A measure of an asset’s sensitivity to market movements. 
+  - \( \beta = 1 \): asset moves with the market.
+  - \( \beta > 1 \): asset is more volatile than the market.
+  - \( \beta < 1 \): asset is less volatile.
 
 ---
 
-## Normative Implications
+## Assumptions of CAPM
 
-From a normative perspective, democratic theory must account for **governance outcomes**, not merely representation. Elections without capacity risk becoming legitimizing mechanisms for ineffective or extractive rule.
-
-This raises difficult questions:
-- Can democracy persist without effective administration?
-- Should institutional competence be prioritized before political liberalization?
+1. Investors are rational and risk-averse.
+2. Markets are efficient.
+3. Investors can borrow and lend at the risk-free rate.
+4. Homogeneous expectations about returns and risks.
+5. Single-period investment horizon.
 
 ---
 
-## Limitations and Critiques
+## Applications
 
-- State capacity can be used for illiberal ends.
-- Strong states are not necessarily democratic.
-- Measuring capacity remains empirically contested.
+- **Portfolio Management**: Identifying undervalued or overvalued assets.
+- **Cost of Equity Calculation**: In corporate finance, CAPM helps compute the cost of equity for discounting cash flows.
+- **Performance Evaluation**: Comparing actual returns to those predicted by CAPM.
 
-Nevertheless, ignoring capacity risks misunderstanding democratic failure.
+---
+
+## Limitations
+
+- Relies on assumptions that may not hold in the real world (e.g., perfect markets).
+- Beta is based on historical data and may not predict future risk accurately.
+- Fails to account for unsystematic risk.
 
 ---
 
 ## Conclusion
 
-Democratic legitimacy depends as much on **institutional performance** as on formal political rights. Political systems that neglect state capacity may preserve democratic forms while hollowing out democratic substance. Understanding this dynamic is essential for explaining both democratic resilience and collapse in the modern world.
+Despite its limitations, CAPM remains a foundational model in finance. Its simplicity and intuitive appeal make it a cornerstone in understanding how risk affects return. This project outlines the logic behind CAPM and serves as a stepping stone to more advanced asset pricing theories.
 
 ---
 
 ## Related Work
 
-- Weber, Max. *Politics as a Vocation.*
-- Fukuyama, Francis. *Political Order and Political Decay.*
-- Besley, Timothy & Persson, Torsten. *Pillars of Prosperity.*
+This project draws upon foundational work in financial theory, notably:
+
+- Sharpe, William F. (1964), “Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk.”
+- Lintner, John (1965), “The Valuation of Risk Assets and the Selection of Risky Investments in Stock Portfolios and Capital Budgets.”
 
 ---
 
