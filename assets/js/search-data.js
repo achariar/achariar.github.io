@@ -412,7 +412,12 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-the-capm",
+          section: "News",},{id: "projects-state-capacity-and-democratic-legitimacy",
+          title: 'State Capacity and Democratic Legitimacy',
+          description: "A political science analysis of institutional strength, governance, and public trust.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/1_thoughts/";
+            },},{id: "projects-the-capm",
           title: 'The CAPM',
           description: "with background image",
           section: "Projects",handler: () => {
