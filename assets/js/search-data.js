@@ -44,6 +44,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
+        },{id: "nav-thoughts",
+          title: "Thoughts",
+          description: "Reflections and research notes on political science, philosophy, and economics.",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/thoughts/";
+          },
         },{id: "post-a-post-with-image-galleries",
       
         title: "a post with image galleries",
