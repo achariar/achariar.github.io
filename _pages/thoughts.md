@@ -7,50 +7,57 @@ nav: true
 nav_order: 7
 ---
 
-## Overview
+<!-- pages/projects.md -->
+<div class="projects">
+{% if site.enable_project_categories and page.display_categories %}
+  <!-- Display categorized projects -->
+  {% for category in page.display_categories %}
+  <a id="{{ category }}" href=".#{{ category }}">
+    <h2 class="category">{{ category }}</h2>
+  </a>
+  {% assign categorized_projects = site.projects | where: "category", category %}
+  {% assign sorted_projects = categorized_projects | sort: "importance" %}
+  <!-- Generate cards for each project -->
+  {% if page.horizontal %}
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+    {% for project in sorted_projects %}
+      {% include projects_horizontal.liquid %}
+    {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for project in sorted_projects %}
+      {% include projects.liquid %}
+    {% endfor %}
+  </div>
+  {% endif %}
+  {% endfor %}
 
-This page collects ongoing reflections and research notes across **political science**, **philosophy**, and **economics**.  
-Entries are exploratory and may evolve over time.
+{% else %}
 
----
+<!-- Display projects without categories -->
 
-## Political Science
+{% assign sorted_projects = site.projects | sort: "importance" %}
 
-### Institutional Stability and Democratic Legitimacy
-**Last updated:** 2026  
-An examination of how institutional trust affects democratic durability in polarized societies.
+  <!-- Generate cards for each project -->
 
-### State Capacity and Governance
-**Last updated:** 2025  
-Notes on the relationship between state power, administrative capacity, and public consent.
+{% if page.horizontal %}
 
----
-
-## Philosophy
-
-### Moral Responsibility in Complex Systems
-**Last updated:** 2026  
-A discussion of whether individual moral responsibility meaningfully applies within large-scale systems.
-
-### Liberal Neutrality and the Good Life
-**Last updated:** 2025  
-Reflections on whether liberal neutrality is philosophically coherent or merely pragmatic.
-
----
-
-## Economics
-
-### Efficiency, Markets, and Welfare
-**Last updated:** 2026  
-An analysis of efficiency as an evaluative concept and its limits in welfare economics.
-
-### Institutions and Incentives
-**Last updated:** 2025  
-Notes on how institutional design shapes incentives beyond simplified market models.
-
----
-
-## Notes
-
-- Dates indicate last revision rather than final publication.
-- Content may later expand into essays or formal papers.
+  <div class="container">
+    <div class="row row-cols-1 row-cols-md-2">
+    {% for project in sorted_projects %}
+      {% include projects_horizontal.liquid %}
+    {% endfor %}
+    </div>
+  </div>
+  {% else %}
+  <div class="row row-cols-1 row-cols-md-3">
+    {% for project in sorted_projects %}
+      {% include projects.liquid %}
+    {% endfor %}
+  </div>
+  {% endif %}
+{% endif %}
+</div>
