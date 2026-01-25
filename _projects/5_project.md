@@ -4,7 +4,7 @@ title: The CAPM
 description: with background image
 img: assets/img/12.jpg
 importance: 1
-category: work
+category: projects 
 related_publications: true
 authors:
   - Jonathan K. Ramani 
