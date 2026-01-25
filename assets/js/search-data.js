@@ -37,19 +37,19 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/repositories/";
           },
-        },{id: "nav-vitae",
-          title: "vitae",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/cv/";
-          },
         },{id: "nav-thoughts",
           title: "thoughts",
           description: "Reflections and research notes on political science, philosophy, and economics.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/thoughts/";
+          },
+        },{id: "nav-vitae",
+          title: "vitae",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/cv/";
           },
         },{id: "post-a-post-with-image-galleries",
       
