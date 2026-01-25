@@ -10,12 +10,6 @@ authors:
   - Jonathan K. Ramani
 ---
 
-# Sri Vaishnavism and the Theology of Ramanuja
-
-<span style="font-size: 0.9em; color: gray;">Jonathan K. Ramani</span>
-
----
-
 ## Overview
 
 This post introduces **Sri Vaishnavism**, one of the most influential devotional and philosophical traditions of Hinduism, and the thought of **Ramanuja** (11th–12th century CE), its greatest systematizer. Sri Vaishnavism is distinguished by its synthesis of **Vedantic philosophy**, **intense personal devotion (bhakti)**, and a deeply ethical vision of surrender, grace, and service to God.
