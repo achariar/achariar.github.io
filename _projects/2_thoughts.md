@@ -1,3 +1,17 @@
+---
+layout: page
+title: Dynamic Realism
+description: A political science analysis of how future uncertainty, economic power spheres, and trade-security dilemmas drive cycles of cooperation and conflict.
+img: assets/img/realism.png
+importance: 1
+category: thoughts
+related_publications: true
+authors:
+  - Jonathan K. Ramani
+---
+
+
+
 ## Interactive Simulation: Trade, Growth, and Preemptive Occupation
 
 <div style="border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 14px; margin: 14px 0;">
