@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Dynamic Realism and the Commercial Foundations of Great Power Politics
+title: Dynamic Realism
 description: A political science analysis of how future uncertainty, economic power spheres, and trade-security dilemmas drive cycles of cooperation and conflict.
 img: assets/img/12.jpg
 importance: 1
