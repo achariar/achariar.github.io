@@ -2,7 +2,7 @@
 layout: page
 title: Dynamic Realism
 description: A political science analysis of how future uncertainty, economic power spheres, and trade-security dilemmas drive cycles of cooperation and conflict.
-img: assets/img/12.jpg
+img: assets/img/realism.png
 importance: 1
 category: thoughts
 related_publications: true
