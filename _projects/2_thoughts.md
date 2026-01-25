@@ -10,12 +10,6 @@ authors:
   - Jonathan K. Ramani
 ---
 
-# Dynamic Realism and the Commercial Foundations of Great Power Politics
-
-<span style="font-size: 0.9em; color: gray;">Jonathan K. Ramani</span>
-
----
-
 ## Overview
 
 This post introduces **Dynamic Realism** — a systemic theory of international relations designed to explain why great powers **oscillate between long periods of cooperation and sudden shifts toward coercion, crisis, or war**.
