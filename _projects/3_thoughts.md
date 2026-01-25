@@ -2,7 +2,7 @@
 layout: page
 title: Sri Vaishnavism 
 description: A philosophical and devotional introduction to Sri Vaishnavism, centered on Ramanuja’s vision of qualified non-dualism, devotion, and grace.
-img: assets/img/12.jpg
+img: assets/img/sri.png
 importance: 1
 category: thoughts
 related_publications: true
