@@ -18,6 +18,340 @@ Dynamic realism integrates key insights from **offensive realism** and **defensi
 
 ---
 
+## Interactive Mini-Simulation: Three Islands
+
+Below is a small interactive analogy. Think of **A** and **B** as competing great powers, and **C** as a strategically located intermediary (trade hub, chokepoint, swing region, etc.). The moving ball is “attention / commerce / influence.” Adjust:
+
+- **C bias**: how often flows route through C (intermediation dependence)
+- **Direct A↔B link**: whether A and B can interact without C
+- **Speed**: how quickly interaction cycles occur
+
+<div style="border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 14px; margin: 14px 0;">
+  <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-bottom:10px;">
+    <div style="display:flex; gap:8px; flex-wrap:wrap;">
+      <button id="dr-start" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.15); background:transparent; cursor:pointer;">Start</button>
+      <button id="dr-pause" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.15); background:transparent; cursor:pointer;">Pause</button>
+      <button id="dr-reset" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.15); background:transparent; cursor:pointer;">Reset</button>
+    </div>
+
+    <label style="display:flex; align-items:center; gap:8px; font-size:0.95em;">
+      <input type="checkbox" id="dr-direct" checked />
+      Allow direct A↔B link
+    </label>
+  </div>
+
+  <div style="display:grid; grid-template-columns: 1fr; gap:10px; margin-bottom:10px;">
+    <label style="display:flex; align-items:center; gap:10px; font-size:0.95em;">
+      Speed
+      <input id="dr-speed" type="range" min="0.5" max="3.5" step="0.1" value="1.6" style="flex:1;" />
+      <span id="dr-speed-val" style="min-width:48px; text-align:right; font-variant-numeric: tabular-nums;">1.6x</span>
+    </label>
+
+    <label style="display:flex; align-items:center; gap:10px; font-size:0.95em;">
+      C bias (route via C)
+      <input id="dr-bias" type="range" min="0" max="1" step="0.01" value="0.78" style="flex:1;" />
+      <span id="dr-bias-val" style="min-width:48px; text-align:right; font-variant-numeric: tabular-nums;">0.78</span>
+    </label>
+  </div>
+
+  <canvas id="dr-canvas" width="860" height="280" style="width:100%; height:auto; display:block; border-radius:12px; background:rgba(0,0,0,0.03);"></canvas>
+
+  <div style="margin-top:10px; font-size:0.92em; color: rgba(0,0,0,0.65); line-height:1.35;">
+    <strong>Interpretation (optional):</strong> Higher C-bias means both A and B depend more on the intermediary. In dynamic realism terms, intermediation can stabilize exchange (cooperation) but also creates vulnerability: if expectations shift, competition over C can intensify.
+  </div>
+</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById("dr-canvas");
+  const ctx = canvas.getContext("2d");
+
+  const btnStart = document.getElementById("dr-start");
+  const btnPause = document.getElementById("dr-pause");
+  const btnReset = document.getElementById("dr-reset");
+
+  const speedSlider = document.getElementById("dr-speed");
+  const speedVal = document.getElementById("dr-speed-val");
+
+  const biasSlider = document.getElementById("dr-bias");
+  const biasVal = document.getElementById("dr-bias-val");
+
+  const directToggle = document.getElementById("dr-direct");
+
+  // Island positions (responsive-ish in canvas space)
+  const islands = {
+    A: { x: 140, y: 150, r: 46, label: "State A" },
+    C: { x: 430, y: 105, r: 44, label: "State C" },
+    B: { x: 720, y: 150, r: 46, label: "State B" },
+  };
+
+  // Ball state
+  let ball = { x: islands.A.x, y: islands.A.y, r: 10 };
+  let running = false;
+  let lastTs = null;
+
+  // Route state
+  let route = [];         // array of points {x,y,name}
+  let segmentIndex = 0;   // which segment we're traveling
+  let t = 0;              // 0..1 progress along segment
+
+  // Utility
+  const lerp = (a,b,u) => a + (b-a)*u;
+
+  function chooseNextRoute() {
+    // Current "home" is the last point we've reached (or start).
+    const current = route.length ? route[route.length - 1].name : "A";
+
+    // Determine destination among A/B with some bias through C
+    // We model a "flow cycle": it tries to alternate between A and B,
+    // but with probability bias it goes via C as an intermediate hop.
+    const bias = parseFloat(biasSlider.value);
+    const allowDirect = directToggle.checked;
+
+    let target = (current === "A") ? "B" : (current === "B") ? "A" : null;
+
+    if (current === "C") {
+      // If at C, go to whichever side is "next" based on last non-C visited.
+      // If previous was A, go to B; if previous was B, go to A. Default A.
+      let prevNonC = null;
+      for (let i = route.length - 2; i >= 0; i--) {
+        if (route[i].name !== "C") { prevNonC = route[i].name; break; }
+      }
+      target = (prevNonC === "A") ? "B" : "A";
+    }
+
+    // Decide if we route through C
+    const viaC = (Math.random() < bias);
+
+    // Build route: current -> (maybe C) -> target
+    const startName = current;
+    const pts = [{ ...islands[startName], name: startName }];
+
+    if (viaC) {
+      // If current isn't C, add C; if it is C, skip.
+      if (startName !== "C") pts.push({ ...islands.C, name: "C" });
+      pts.push({ ...islands[target], name: target });
+    } else {
+      // direct: only if allowed or if current is C
+      if (!allowDirect && startName !== "C") {
+        // force via C if direct is not allowed
+        pts.push({ ...islands.C, name: "C" });
+        pts.push({ ...islands[target], name: target });
+      } else {
+        pts.push({ ...islands[target], name: target });
+      }
+    }
+
+    route = pts;
+    segmentIndex = 0;
+    t = 0;
+
+    // Snap ball to start
+    ball.x = route[0].x;
+    ball.y = route[0].y;
+  }
+
+  function drawArrow(x1,y1,x2,y2, alpha=0.45) {
+    // line
+    ctx.save();
+    ctx.globalAlpha = alpha;
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "#000";
+    ctx.beginPath();
+    ctx.moveTo(x1,y1);
+    ctx.lineTo(x2,y2);
+    ctx.stroke();
+
+    // arrow head
+    const angle = Math.atan2(y2-y1, x2-x1);
+    const headlen = 12;
+    ctx.beginPath();
+    ctx.moveTo(x2, y2);
+    ctx.lineTo(x2 - headlen*Math.cos(angle - Math.PI/7), y2 - headlen*Math.sin(angle - Math.PI/7));
+    ctx.lineTo(x2 - headlen*Math.cos(angle + Math.PI/7), y2 - headlen*Math.sin(angle + Math.PI/7));
+    ctx.closePath();
+    ctx.fillStyle = "#000";
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function draw() {
+    // Clear
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    // Background grid-ish
+    ctx.save();
+    ctx.globalAlpha = 0.06;
+    ctx.strokeStyle = "#000";
+    for (let x = 0; x <= canvas.width; x += 40) {
+      ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); ctx.stroke();
+    }
+    for (let y = 0; y <= canvas.height; y += 40) {
+      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(canvas.width,y); ctx.stroke();
+    }
+    ctx.restore();
+
+    // Draw possible links
+    const allowDirect = directToggle.checked;
+    drawArrow(islands.A.x, islands.A.y, islands.C.x, islands.C.y, 0.25);
+    drawArrow(islands.C.x, islands.C.y, islands.B.x, islands.B.y, 0.25);
+    if (allowDirect) drawArrow(islands.A.x, islands.A.y, islands.B.x, islands.B.y, 0.12);
+
+    // Highlight active route segments
+    if (route.length >= 2) {
+      ctx.save();
+      ctx.globalAlpha = 0.55;
+      ctx.lineWidth = 6;
+      ctx.strokeStyle = "#000";
+      for (let i = 0; i < route.length - 1; i++) {
+        ctx.beginPath();
+        ctx.moveTo(route[i].x, route[i].y);
+        ctx.lineTo(route[i+1].x, route[i+1].y);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    // Draw islands
+    Object.entries(islands).forEach(([k, isl]) => {
+      ctx.save();
+      ctx.fillStyle = "#000";
+      ctx.globalAlpha = 0.10;
+      ctx.beginPath();
+      ctx.arc(isl.x, isl.y, isl.r + 10, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+
+      ctx.save();
+      ctx.fillStyle = "#000";
+      ctx.globalAlpha = 0.18;
+      ctx.beginPath();
+      ctx.arc(isl.x, isl.y, isl.r, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+
+      ctx.save();
+      ctx.strokeStyle = "#000";
+      ctx.globalAlpha = 0.50;
+      ctx.lineWidth = 2;
+      ctx.beginPath();
+      ctx.arc(isl.x, isl.y, isl.r, 0, Math.PI*2);
+      ctx.stroke();
+      ctx.restore();
+
+      // Labels
+      ctx.save();
+      ctx.fillStyle = "#000";
+      ctx.globalAlpha = 0.80;
+      ctx.font = "600 14px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+      ctx.textAlign = "center";
+      ctx.fillText(isl.label, isl.x, isl.y + 5);
+      ctx.restore();
+    });
+
+    // Draw ball
+    ctx.save();
+    ctx.fillStyle = "#000";
+    ctx.globalAlpha = 0.85;
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  function step(ts) {
+    if (!running) return;
+    if (lastTs === null) lastTs = ts;
+
+    const dt = Math.min(0.03, (ts - lastTs) / 1000); // cap to avoid jumps
+    lastTs = ts;
+
+    const speed = parseFloat(speedSlider.value);
+    const segSpeed = 0.55 * speed; // tweak constant for nice motion
+
+    // Ensure route exists
+    if (route.length < 2) chooseNextRoute();
+
+    // Travel along current segment
+    const a = route[segmentIndex];
+    const b = route[segmentIndex + 1];
+
+    t += dt * segSpeed;
+
+    if (t >= 1) {
+      // Arrive at next node
+      ball.x = b.x;
+      ball.y = b.y;
+      segmentIndex += 1;
+      t = 0;
+
+      // If route finished, pick next route starting from current endpoint
+      if (segmentIndex >= route.length - 1) {
+        // make the endpoint the start for next cycle
+        route = [{ ...b, name: b.name }];
+        segmentIndex = 0;
+        chooseNextRoute();
+      }
+    } else {
+      ball.x = lerp(a.x, b.x, t);
+      ball.y = lerp(a.y, b.y, t);
+    }
+
+    draw();
+    requestAnimationFrame(step);
+  }
+
+  function start() {
+    if (running) return;
+    running = true;
+    lastTs = null;
+    requestAnimationFrame(step);
+  }
+
+  function pause() {
+    running = false;
+    lastTs = null;
+  }
+
+  function reset() {
+    pause();
+    route = [];
+    segmentIndex = 0;
+    t = 0;
+    ball.x = islands.A.x;
+    ball.y = islands.A.y;
+    draw();
+  }
+
+  // UI bindings
+  speedSlider.addEventListener("input", () => {
+    speedVal.textContent = `${parseFloat(speedSlider.value).toFixed(1)}x`;
+  });
+  biasSlider.addEventListener("input", () => {
+    biasVal.textContent = `${parseFloat(biasSlider.value).toFixed(2)}`;
+  });
+  directToggle.addEventListener("change", () => {
+    // refresh route so it reflects the new constraint
+    chooseNextRoute();
+    draw();
+  });
+
+  btnStart.addEventListener("click", start);
+  btnPause.addEventListener("click", pause);
+  btnReset.addEventListener("click", reset);
+
+  // Initialize labels
+  speedVal.textContent = `${parseFloat(speedSlider.value).toFixed(1)}x`;
+  biasVal.textContent = `${parseFloat(biasSlider.value).toFixed(2)}`;
+
+  // First render
+  chooseNextRoute();
+  draw();
+})();
+</script>
+
+---
+
 ## What is Dynamic Realism?
 
 **Dynamic realism** argues that great powers behave the way they do because leaders are constantly managing a trade-off:
@@ -144,8 +478,6 @@ Dynamic realism helps explain:
 - Why economic tools (sanctions, trade policy, tech controls) can become central to rivalry  
 - How competition over “neutral” states in the second realm shapes alliances and blocs  
 - Why conflict often becomes more likely when leaders think the future trade environment is closing
-
-It is especially useful for understanding modern great power politics where economic statecraft is constant and strategic rivalry is often fought through markets, technology, finance, and supply chains.
 
 ---
 
