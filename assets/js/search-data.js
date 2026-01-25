@@ -419,9 +419,9 @@ ninja.data = [{
             },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
           title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
           description: "",
-          section: "News",},{id: "projects-state-capacity-and-democratic-legitimacy",
-          title: 'State Capacity and Democratic Legitimacy',
-          description: "A political science analysis of institutional strength, governance, and public trust.",
+          section: "News",},{id: "projects-conditional-morality",
+          title: 'Conditional Morality',
+          description: "A philosophical framework for evaluating values based on their relationship to desired outcomes rather than moral absolutism.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_thoughts/";
             },},{id: "projects-dynamic-realism",
