@@ -10,12 +10,6 @@ authors:
   - Jonathan K. Ramani
 ---
 
-# Conditional Morality
-
-<span style="font-size: 0.9em; color: gray;">Jonathan K. Ramani</span>
-
----
-
 ## Overview
 
 This post outlines a framework I call **Conditional Morality** — the idea that moral values do not exist in a vacuum, but derive their force and legitimacy from the **outcomes they reliably produce**. Rather than treating values as inherently good or bad in a metaphysical sense, conditional morality evaluates them according to whether they **advance or undermine concrete goals**.
