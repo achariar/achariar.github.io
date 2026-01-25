@@ -424,11 +424,6 @@ ninja.data = [{
           description: "A philosophical framework for evaluating values based on their relationship to desired outcomes rather than moral absolutism.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/1_thoughts/";
-            },},{id: "projects-dynamic-realism",
-          title: 'Dynamic Realism',
-          description: "A political science analysis of how future uncertainty, economic power spheres, and trade-security dilemmas drive cycles of cooperation and conflict.",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/2_thoughts/";
             },},{id: "projects-sri-vaishnavism",
           title: 'Sri Vaishnavism',
           description: "A philosophical and devotional introduction to Sri Vaishnavism, centered on Ramanuja’s vision of qualified non-dualism, devotion, and grace.",
