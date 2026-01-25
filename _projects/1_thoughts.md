@@ -18,9 +18,9 @@ authors:
 
 ## Overview
 
-This post outlines a framework I call **Conditional Morality** — the idea that moral values do not exist in a vacuum, but are meaningful only in relation to the **outcomes they produce**. Rather than treating values as inherently good or bad in an absolute sense, conditional morality evaluates them according to whether they **advance or undermine explicitly stated goals**.
+This post outlines a framework I call **Conditional Morality** — the idea that moral values do not exist in a vacuum, but derive their force and legitimacy from the **outcomes they reliably produce**. Rather than treating values as inherently good or bad in a metaphysical sense, conditional morality evaluates them according to whether they **advance or undermine concrete goals**.
 
-Under this view, moral disagreement is often not about values themselves, but about **desired ends**. A value may be coherent, functional, or even admirable within one set of goals, and counterproductive within another.
+Under this view, moral disagreement is often not about values themselves, but about **which outcomes are being prioritized**. A value may be coherent, functional, or even admirable within one set of goals, and destructive within another.
 
 ---
 
@@ -33,7 +33,7 @@ They are:
 - justified by their effects,
 - and evaluated relative to the purposes they serve.
 
-If we desire a particular outcome, then only certain values are compatible with achieving it. Values that consistently undermine that outcome are, by definition, **wrong relative to that goal** — not because they violate an abstract moral law, but because they fail instrumentally.
+If a society desires a particular outcome, then only certain values are compatible with achieving it. Values that consistently undermine that outcome are **wrong relative to that objective** — not because they violate an abstract moral law, but because they fail instrumentally.
 
 This is the essence of conditional morality.
 
@@ -41,100 +41,121 @@ This is the essence of conditional morality.
 
 ## Morality as Outcome-Dependent
 
-Conditional morality begins with a simple sequence:
+Conditional morality begins with a simple causal chain:
 
-1. A society (or individual) desires a set of outcomes  
+1. A society (or individual) seeks specific outcomes  
 2. Certain behaviors and norms reliably produce those outcomes  
-3. Values are codified to encourage those behaviors  
-4. Moral judgments follow from whether those values succeed
+3. Values are codified to stabilize and transmit those behaviors  
+4. Moral judgments follow from whether the values succeed
 
-Under this model, morality is **teleological** (goal-oriented), not absolute.
+Under this model, morality is **teleological** (goal-oriented), not deontological. Values are judged by what they do over time, not by how they are justified rhetorically.
 
 For example:
-- If a society desires long-term cognitive health, stability, and innovation,
-- then practices that predictably degrade those outcomes are morally defective *in that context*.
+- If a society values long-term stability, intelligence, and institutional competence,
+- then practices that predictably erode those traits are morally defective **in relation to those aims**.
 
-The moral judgment is conditional on the outcome, not universalized across all possible worlds or goals.
+The judgment is conditional — but not arbitrary.
 
 ---
 
-## Against Moral Absolutism
+## Against Moral Absolutism (Revised)
 
-Conditional morality rejects the idea that values are:
-- timeless,
-- context-free,
-- or valid regardless of consequences.
+Conditional morality rejects *metaphysical* moral absolutism — the claim that values are valid independent of consequences, context, or outcomes.
 
-This does not mean “anything goes.” It means **nothing escapes evaluation**.
+However, this does **not** imply that all values are equally contingent, fleeting, or culture-bound.
 
-A value is not protected simply because it is traditional, sacred, or emotionally appealing. If it persistently generates outcomes that contradict a society’s stated aims, it must be reexamined.
+When certain outcomes act as **convergent survival conditions** — such as:
+- material productivity,
+- military capability,
+- institutional coherence,
+- demographic sustainability,
+- and technological advancement,
 
-In this sense, conditional morality is **stricter** than absolutism, not looser: it demands empirical and historical accountability.
+then values that reliably produce those outcomes recur across time, geography, and civilizations.
+
+In this sense, some values are **functionally timeless** — not because they are morally absolute, but because **the conditions that select for them persist**.
+
+Cultures that adopt these values tend to survive, expand, and dominate. Cultures that do not tend to stagnate, fragment, or are displaced.
+
+This produces what can be described, without sentimentality, as a **hierarchy of cultural fitness**.
+
+---
+
+## Supremacy as Outcome, Not Essence
+
+Under conditional morality, the superiority of certain cultures is not a claim about intrinsic worth, moral purity, or metaphysical status. It is a claim about **performance under selection pressures**.
+
+A culture may be described as *superior* insofar as:
+- it produces sustained material prosperity,
+- it maintains military and strategic dominance,
+- it preserves internal cohesion over time,
+- and it transmits its values successfully across generations.
+
+These outcomes are not accidental. They are the result of value systems that align with persistent constraints imposed by reality.
+
+Supremacy here is **emergent**, not declared.
 
 ---
 
 ## Comparative Judgments Between Cultures
 
-One implication of conditional morality is that **comparative evaluation between cultures is possible**, but only if the comparison is honest about goals.
+Conditional morality therefore permits — and in fact requires — **comparative evaluation between cultures**.
 
-It becomes coherent to say:
+It is coherent to say:
 
-> “This culture holds values that are inferior relative to the outcomes this civilization seeks to achieve.”
+> “This culture holds values that are inferior relative to the outcomes required for long-term survival and power.”
 
-This is not a claim of metaphysical superiority. It is a claim of **instrumental mismatch**.
+This is not a claim of moral absolutism. It is an empirical judgment grounded in observable consequences.
 
-At the same time, conditional morality allows for intellectual humility:
+At the same time, the framework allows for a limited form of humility:
 
-> “Another culture may hold different values because it seeks different ends.”
+> “A culture may rationally pursue different values if it prioritizes different outcomes — but it must accept the trade-offs that follow.”
 
-Disagreement, then, is not automatically moral condemnation — it is often a disagreement over **what is being optimized for**.
+There is no escape from consequence.
 
 ---
 
-## Strength, Intelligence, and Social Outcomes
+## Convergent Values and Survival
 
-If a society explicitly values outcomes such as:
-- cognitive development,
-- social trust,
-- long-term resilience,
-- or institutional competence,
+Because survival, prosperity, and security are recurring constraints, certain values tend to reappear across successful civilizations, including:
+- disciplined social norms,
+- meritocratic selection,
+- delayed gratification,
+- respect for competence and hierarchy,
+- suppression of practices that degrade human capital.
 
-then it must accept that not all practices are morally neutral relative to those goals.
+These values are not eternal truths — but they are **reliably rediscovered** because they work.
 
-Under conditional morality:
-- A value is “wrong” if it reliably degrades the outcomes the society claims to value.
-- A value is “right” if it reliably supports them.
-
-The moral judgment is conditional, falsifiable, and open to revision — but it is not arbitrary.
+In this sense, conditional morality explains why history does not flatten into relativism: reality itself enforces convergence.
 
 ---
 
 ## What Conditional Morality Is Not
 
 Conditional morality is **not**:
-- moral relativism (“all values are equal”)
-- nihilism (“values don’t matter”)
-- emotional preference masquerading as ethics
+- moral relativism (“all values are equal”),
+- nihilism (“values are meaningless”),
+- or preference masquerading as ethics.
 
-It does not deny that moral claims can be strong, forceful, or binding. It denies only that they are **context-independent**.
+It denies only that values are insulated from consequence.
 
 It insists that moral seriousness requires:
-- clarity about goals,
-- honesty about trade-offs,
-- and willingness to revise values when evidence demands it.
+- explicit articulation of goals,
+- acceptance of trade-offs,
+- and willingness to discard values that fail under pressure.
 
 ---
 
 ## Why This Framework Matters
 
-Many moral conflicts persist because participants argue at the level of values without ever articulating:
-- what outcomes they want,
-- what trade-offs they accept,
-- and what costs they are willing to impose.
+Many moral disputes persist because participants argue about values while refusing to state:
+- what outcomes they seek,
+- what costs they accept,
+- and what failure looks like.
 
-Conditional morality forces that conversation into the open.
+Conditional morality collapses this evasion.
 
-It replaces moral posturing with a harder question:
+It replaces moral posturing with a harder, unavoidable question:
 
 **“What are you trying to build — and do your values actually build it?”**
 
@@ -142,9 +163,12 @@ It replaces moral posturing with a harder question:
 
 ## Conclusion
 
-Conditional morality treats ethics as a practical discipline grounded in consequences, not declarations. Values are judged by what they do, not what they claim to be. Cultures, institutions, and individuals are evaluated not by moral labels, but by alignment between **ends and means**.
+Conditional morality treats ethics as a discipline grounded in outcomes and selection, not declarations or sentiment. Values are judged by what they produce over time. Cultures are evaluated not by intention, but by alignment between **ends and means**.
 
-This framework does not promise moral comfort. It promises moral clarity.
+Some values persist because the world keeps rewarding them. Others disappear because the world does not.
+
+This framework does not promise comfort or equality.  
+It promises explanatory power.
 
 ---
 
