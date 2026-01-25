@@ -429,9 +429,9 @@ ninja.data = [{
           description: "A political science analysis of how future uncertainty, economic power spheres, and trade-security dilemmas drive cycles of cooperation and conflict.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_thoughts/";
-            },},{id: "projects-state-capacity-and-democratic-legitimacy",
-          title: 'State Capacity and Democratic Legitimacy',
-          description: "A political science analysis of institutional strength, governance, and public trust.",
+            },},{id: "projects-sri-vaishnavism",
+          title: 'Sri Vaishnavism',
+          description: "A philosophical and devotional introduction to Sri Vaishnavism, centered on Ramanuja’s vision of qualified non-dualism, devotion, and grace.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_thoughts/";
             },},{id: "projects-the-capm",
