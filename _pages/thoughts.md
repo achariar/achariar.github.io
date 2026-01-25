@@ -4,7 +4,7 @@ permalink: /thoughts/
 title: thoughts
 description: Reflections and research notes on political science, philosophy, and economics.
 nav: true
-nav_order: 7
+nav_order: 6
 ---
 
 <!-- pages/projects.md -->
