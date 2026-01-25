@@ -1,16 +1,16 @@
 ---
 layout: page
-title: State Capacity and Democratic Legitimacy
-description: A political science analysis of institutional strength, governance, and public trust.
+title: Conditional Morality
+description: A philosophical framework for evaluating values based on their relationship to desired outcomes rather than moral absolutism.
 img: assets/img/12.jpg
 importance: 1
 category: thoughts
-related_publications: true
+related_publications: false
 authors:
   - Jonathan K. Ramani
 ---
 
-# Project 5: A Simple Model in Asset Pricing
+# Conditional Morality
 
 <span style="font-size: 0.9em; color: gray;">Jonathan K. Ramani</span>
 
@@ -18,76 +18,134 @@ authors:
 
 ## Overview
 
-This project introduces and explains the **Capital Asset Pricing Model (CAPM)** — a fundamental framework in financial economics used to understand the relationship between risk and expected return. CAPM provides a simple but powerful formula to price risky securities and is widely used by investors and financial analysts.
+This post outlines a framework I call **Conditional Morality** — the idea that moral values do not exist in a vacuum, but are meaningful only in relation to the **outcomes they produce**. Rather than treating values as inherently good or bad in an absolute sense, conditional morality evaluates them according to whether they **advance or undermine explicitly stated goals**.
+
+Under this view, moral disagreement is often not about values themselves, but about **desired ends**. A value may be coherent, functional, or even admirable within one set of goals, and counterproductive within another.
 
 ---
 
-## What is CAPM?
+## The Core Claim
 
-The **Capital Asset Pricing Model** states that the expected return of a security is equal to the risk-free rate plus a risk premium. The formula is given by:
+**Values are instruments, not axioms.**
 
-\[
-E(R_i) = R_f + \beta_i (E(R_m) - R_f)
-\]
+They are:
+- adopted to produce outcomes,
+- justified by their effects,
+- and evaluated relative to the purposes they serve.
 
-Where:
-- \( E(R_i) \): Expected return of asset *i*
-- \( R_f \): Risk-free rate
-- \( \beta_i \): Beta of the asset (a measure of systematic risk)
-- \( E(R_m) \): Expected return of the market portfolio
+If we desire a particular outcome, then only certain values are compatible with achieving it. Values that consistently undermine that outcome are, by definition, **wrong relative to that goal** — not because they violate an abstract moral law, but because they fail instrumentally.
 
----
-
-## Key Concepts
-
-- **Risk-Free Rate**: The return on an investment with zero risk, typically government bonds.
-- **Market Risk Premium**: \( E(R_m) - R_f \), the excess return expected from the market over the risk-free rate.
-- **Beta (\( \beta \))**: A measure of an asset’s sensitivity to market movements. 
-  - \( \beta = 1 \): asset moves with the market.
-  - \( \beta > 1 \): asset is more volatile than the market.
-  - \( \beta < 1 \): asset is less volatile.
+This is the essence of conditional morality.
 
 ---
 
-## Assumptions of CAPM
+## Morality as Outcome-Dependent
 
-1. Investors are rational and risk-averse.
-2. Markets are efficient.
-3. Investors can borrow and lend at the risk-free rate.
-4. Homogeneous expectations about returns and risks.
-5. Single-period investment horizon.
+Conditional morality begins with a simple sequence:
+
+1. A society (or individual) desires a set of outcomes  
+2. Certain behaviors and norms reliably produce those outcomes  
+3. Values are codified to encourage those behaviors  
+4. Moral judgments follow from whether those values succeed
+
+Under this model, morality is **teleological** (goal-oriented), not absolute.
+
+For example:
+- If a society desires long-term cognitive health, stability, and innovation,
+- then practices that predictably degrade those outcomes are morally defective *in that context*.
+
+The moral judgment is conditional on the outcome, not universalized across all possible worlds or goals.
 
 ---
 
-## Applications
+## Against Moral Absolutism
 
-- **Portfolio Management**: Identifying undervalued or overvalued assets.
-- **Cost of Equity Calculation**: In corporate finance, CAPM helps compute the cost of equity for discounting cash flows.
-- **Performance Evaluation**: Comparing actual returns to those predicted by CAPM.
+Conditional morality rejects the idea that values are:
+- timeless,
+- context-free,
+- or valid regardless of consequences.
+
+This does not mean “anything goes.” It means **nothing escapes evaluation**.
+
+A value is not protected simply because it is traditional, sacred, or emotionally appealing. If it persistently generates outcomes that contradict a society’s stated aims, it must be reexamined.
+
+In this sense, conditional morality is **stricter** than absolutism, not looser: it demands empirical and historical accountability.
 
 ---
 
-## Limitations
+## Comparative Judgments Between Cultures
 
-- Relies on assumptions that may not hold in the real world (e.g., perfect markets).
-- Beta is based on historical data and may not predict future risk accurately.
-- Fails to account for unsystematic risk.
+One implication of conditional morality is that **comparative evaluation between cultures is possible**, but only if the comparison is honest about goals.
+
+It becomes coherent to say:
+
+> “This culture holds values that are inferior relative to the outcomes this civilization seeks to achieve.”
+
+This is not a claim of metaphysical superiority. It is a claim of **instrumental mismatch**.
+
+At the same time, conditional morality allows for intellectual humility:
+
+> “Another culture may hold different values because it seeks different ends.”
+
+Disagreement, then, is not automatically moral condemnation — it is often a disagreement over **what is being optimized for**.
+
+---
+
+## Strength, Intelligence, and Social Outcomes
+
+If a society explicitly values outcomes such as:
+- cognitive development,
+- social trust,
+- long-term resilience,
+- or institutional competence,
+
+then it must accept that not all practices are morally neutral relative to those goals.
+
+Under conditional morality:
+- A value is “wrong” if it reliably degrades the outcomes the society claims to value.
+- A value is “right” if it reliably supports them.
+
+The moral judgment is conditional, falsifiable, and open to revision — but it is not arbitrary.
+
+---
+
+## What Conditional Morality Is Not
+
+Conditional morality is **not**:
+- moral relativism (“all values are equal”)
+- nihilism (“values don’t matter”)
+- emotional preference masquerading as ethics
+
+It does not deny that moral claims can be strong, forceful, or binding. It denies only that they are **context-independent**.
+
+It insists that moral seriousness requires:
+- clarity about goals,
+- honesty about trade-offs,
+- and willingness to revise values when evidence demands it.
+
+---
+
+## Why This Framework Matters
+
+Many moral conflicts persist because participants argue at the level of values without ever articulating:
+- what outcomes they want,
+- what trade-offs they accept,
+- and what costs they are willing to impose.
+
+Conditional morality forces that conversation into the open.
+
+It replaces moral posturing with a harder question:
+
+**“What are you trying to build — and do your values actually build it?”**
 
 ---
 
 ## Conclusion
 
-Despite its limitations, CAPM remains a foundational model in finance. Its simplicity and intuitive appeal make it a cornerstone in understanding how risk affects return. This project outlines the logic behind CAPM and serves as a stepping stone to more advanced asset pricing theories.
+Conditional morality treats ethics as a practical discipline grounded in consequences, not declarations. Values are judged by what they do, not what they claim to be. Cultures, institutions, and individuals are evaluated not by moral labels, but by alignment between **ends and means**.
+
+This framework does not promise moral comfort. It promises moral clarity.
 
 ---
 
-## Related Work
-
-This project draws upon foundational work in financial theory, notably:
-
-- Sharpe, William F. (1964), “Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk.”
-- Lintner, John (1965), “The Valuation of Risk Assets and the Selection of Risky Investments in Stock Portfolios and Capital Budgets.”
-
----
-
-*Last updated: June 2025*
+*Last updated: January 2026*
