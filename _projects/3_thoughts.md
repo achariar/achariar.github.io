@@ -1,7 +1,7 @@
 ---
 layout: page
-title: State Capacity and Democratic Legitimacy
-description: A political science analysis of institutional strength, governance, and public trust.
+title: Sri Vaishnavism 
+description: A philosophical and devotional introduction to Sri Vaishnavism, centered on Ramanuja’s vision of qualified non-dualism, devotion, and grace.
 img: assets/img/12.jpg
 importance: 1
 category: thoughts
@@ -10,7 +10,7 @@ authors:
   - Jonathan K. Ramani
 ---
 
-# Project 5: A Simple Model in Asset Pricing
+# Sri Vaishnavism and the Theology of Ramanuja
 
 <span style="font-size: 0.9em; color: gray;">Jonathan K. Ramani</span>
 
@@ -18,76 +18,132 @@ authors:
 
 ## Overview
 
-This project introduces and explains the **Capital Asset Pricing Model (CAPM)** — a fundamental framework in financial economics used to understand the relationship between risk and expected return. CAPM provides a simple but powerful formula to price risky securities and is widely used by investors and financial analysts.
+This post introduces **Sri Vaishnavism**, one of the most influential devotional and philosophical traditions of Hinduism, and the thought of **Ramanuja** (11th–12th century CE), its greatest systematizer. Sri Vaishnavism is distinguished by its synthesis of **Vedantic philosophy**, **intense personal devotion (bhakti)**, and a deeply ethical vision of surrender, grace, and service to God.
+
+At its core, Sri Vaishnavism affirms that the ultimate reality is **Narayana (Vishnu)** — personal, loving, and accessible — and that liberation is attained not through abstract knowledge alone, but through devotion grounded in humility and divine grace.
 
 ---
 
-## What is CAPM?
+## What Is Sri Vaishnavism?
 
-The **Capital Asset Pricing Model** states that the expected return of a security is equal to the risk-free rate plus a risk premium. The formula is given by:
+**Sri Vaishnavism** is a devotional tradition dedicated to Vishnu and his consort **Sri (Lakshmi)**. It draws authority from:
 
-\[
-E(R_i) = R_f + \beta_i (E(R_m) - R_f)
-\]
+- The **Vedas** and **Upanishads**
+- The **Bhagavad Gita**
+- The **Brahma Sutras**
+- The devotional hymns of the **Alvars**, Tamil poet-saints whose works form the *Divya Prabandham*
 
-Where:
-- \( E(R_i) \): Expected return of asset *i*
-- \( R_f \): Risk-free rate
-- \( \beta_i \): Beta of the asset (a measure of systematic risk)
-- \( E(R_m) \): Expected return of the market portfolio
+Sri Vaishnavism is distinctive for treating Sanskrit philosophical texts and Tamil devotional poetry as **equally authoritative**, uniting reasoned metaphysics with lived devotion.
 
 ---
 
-## Key Concepts
+## Ramanuja’s Central Contribution
 
-- **Risk-Free Rate**: The return on an investment with zero risk, typically government bonds.
-- **Market Risk Premium**: \( E(R_m) - R_f \), the excess return expected from the market over the risk-free rate.
-- **Beta (\( \beta \))**: A measure of an asset’s sensitivity to market movements. 
-  - \( \beta = 1 \): asset moves with the market.
-  - \( \beta > 1 \): asset is more volatile than the market.
-  - \( \beta < 1 \): asset is less volatile.
+Ramanuja provided Sri Vaishnavism with its enduring philosophical foundation through his doctrine of **Visishtadvaita Vedanta**, or *qualified non-dualism*.
 
----
+Against strict non-dualism and dualism alike, Ramanuja argued that:
 
-## Assumptions of CAPM
+- Reality is **one**, but internally **differentiated**
+- God, souls, and matter are **distinct but inseparable**
+- The universe is the **body of God**, who is its inner ruler
 
-1. Investors are rational and risk-averse.
-2. Markets are efficient.
-3. Investors can borrow and lend at the risk-free rate.
-4. Homogeneous expectations about returns and risks.
-5. Single-period investment horizon.
+This vision preserves unity without collapsing difference, allowing devotion, ethics, and relationship to remain meaningful.
 
 ---
 
-## Applications
+## Visishtadvaita: Qualified Non-Dualism
 
-- **Portfolio Management**: Identifying undervalued or overvalued assets.
-- **Cost of Equity Calculation**: In corporate finance, CAPM helps compute the cost of equity for discounting cash flows.
-- **Performance Evaluation**: Comparing actual returns to those predicted by CAPM.
+### Core Claims
+
+1. **Brahman is personal**  
+   Ultimate reality is Vishnu/Narayana, endowed with infinite auspicious qualities.
+
+2. **Souls and matter are real**  
+   Individual souls (*jivas*) and the material world are not illusions; they are real parts of Brahman’s expression.
+
+3. **Unity with distinction**  
+   Souls depend entirely on God but do not lose their individuality, even in liberation.
+
+In Ramanuja’s metaphor, just as the body depends on the soul yet remains distinct, the universe depends on God while retaining its own reality.
 
 ---
 
-## Limitations
+## Bhakti and Prapatti (Surrender)
 
-- Relies on assumptions that may not hold in the real world (e.g., perfect markets).
-- Beta is based on historical data and may not predict future risk accurately.
-- Fails to account for unsystematic risk.
+Sri Vaishnavism places **bhakti** — loving devotion — at the center of spiritual life. However, Ramanuja emphasizes a particular form of devotion known as **prapatti**, or total surrender.
+
+### Prapatti Involves:
+- Acknowledging one’s inability to achieve liberation through effort alone
+- Entrusting oneself fully to God’s grace
+- Living a life of gratitude, service, and moral discipline
+
+Liberation (*moksha*) is not earned; it is **granted by divine compassion**.
+
+---
+
+## God, Grace, and Liberation
+
+In Ramanuja’s theology:
+
+- God is both **just and merciful**
+- Grace does not negate moral responsibility
+- Liberation is eternal **service to God**, not absorption into an impersonal absolute
+
+The liberated soul retains individuality and experiences unbroken joy in the presence of Vishnu.
+
+---
+
+## Ethics and the World
+
+Unlike ascetic traditions that devalue worldly life, Sri Vaishnavism affirms:
+
+- Ethical action as spiritual discipline
+- Social responsibility and compassion
+- Worship through daily duties when performed as service to God
+
+The world is not to be escaped, but **rightly oriented** toward the divine.
+
+---
+
+## Historical and Cultural Impact
+
+Sri Vaishnavism profoundly shaped:
+
+- Temple worship in South India
+- Tamil religious literature
+- Later bhakti movements across India
+- Debates within Vedanta philosophy
+
+Internal diversity later developed within the tradition, particularly between the **Vadakalai** and **Tenkalai** schools, differing mainly on interpretations of grace and human effort — but both remain firmly grounded in Ramanuja’s vision.
+
+---
+
+## Why Ramanuja Still Matters
+
+Ramanuja’s thought remains relevant because it offers:
+
+- A metaphysics that balances unity and diversity
+- A religious life grounded in love rather than fear
+- A vision of salvation centered on grace, dignity, and service
+- A bridge between philosophy and lived devotion
+
+His system shows how rigorous reasoning and heartfelt faith can coexist without contradiction.
 
 ---
 
 ## Conclusion
 
-Despite its limitations, CAPM remains a foundational model in finance. Its simplicity and intuitive appeal make it a cornerstone in understanding how risk affects return. This project outlines the logic behind CAPM and serves as a stepping stone to more advanced asset pricing theories.
+Sri Vaishnavism, as articulated by Ramanuja, presents a deeply humane and theologically rich vision of reality. It affirms a personal God who is intimately present in the world, souls who matter eternally, and a path to liberation grounded not in spiritual elitism, but in surrender and grace. In an age often torn between abstraction and sentiment, Ramanuja’s synthesis remains both intellectually compelling and spiritually sustaining.
 
 ---
 
 ## Related Work
 
-This project draws upon foundational work in financial theory, notably:
-
-- Sharpe, William F. (1964), “Capital Asset Prices: A Theory of Market Equilibrium under Conditions of Risk.”
-- Lintner, John (1965), “The Valuation of Risk Assets and the Selection of Risky Investments in Stock Portfolios and Capital Budgets.”
+- Ramanuja, *Sri Bhashya* (Commentary on the Brahma Sutras)
+- Ramanuja, *Gita Bhashya*
+- Carman, John B., *The Theology of Ramanuja*
+- Hopkins, Steven P., *Singing the Body of God*
 
 ---
 
-*Last updated: June 2025*
+*Last updated: January 2026*
