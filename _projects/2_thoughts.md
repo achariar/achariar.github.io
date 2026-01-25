@@ -1,300 +1,503 @@
----
-layout: page
-title: Dynamic Realism
-description: A political science analysis of how future uncertainty, economic power spheres, and trade-security dilemmas drive cycles of cooperation and conflict.
-img: assets/img/realism.png
-importance: 1
-category: thoughts
-related_publications: true
-authors:
-  - Jonathan K. Ramani
----
-
-## Overview
-
-This post introduces **Dynamic Realism** — a systemic theory of international relations designed to explain why great powers **oscillate between long periods of cooperation and sudden shifts toward coercion, crisis, or war**.
-
-Dynamic realism integrates key insights from **offensive realism** and **defensive realism**, but shifts the analytical center of gravity to a variable that standard realism often underweights: **commercial access and economic power spheres**. The core idea is simple: great powers compete because they fear the future — but they often restrain themselves because they also fear spirals of escalation. The resulting behavior is **conditional, strategic, and dynamic**.
-
----
-
-## Interactive Mini-Simulation: Three Islands
-
-Below is a small interactive analogy. Think of **A** and **B** as competing great powers, and **C** as a strategically located intermediary (trade hub, chokepoint, swing region, etc.). The moving ball is “attention / commerce / influence.” Adjust:
-
-- **C bias**: how often flows route through C (intermediation dependence)
-- **Direct A↔B link**: whether A and B can interact without C
-- **Speed**: how quickly interaction cycles occur
+## Interactive Simulation: Trade, Growth, and Preemptive Occupation
 
 <div style="border: 1px solid rgba(0,0,0,0.12); border-radius: 12px; padding: 14px; margin: 14px 0;">
   <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-bottom:10px;">
     <div style="display:flex; gap:8px; flex-wrap:wrap;">
-      <button id="dr-start" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.15); background:transparent; cursor:pointer;">Start</button>
-      <button id="dr-pause" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.15); background:transparent; cursor:pointer;">Pause</button>
-      <button id="dr-reset" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.15); background:transparent; cursor:pointer;">Reset</button>
+      <button id="sim-start" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.18); background:transparent; cursor:pointer;">Start</button>
+      <button id="sim-pause" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.18); background:transparent; cursor:pointer;">Pause</button>
+      <button id="sim-reset" style="padding:6px 10px; border-radius:10px; border:1px solid rgba(0,0,0,0.18); background:transparent; cursor:pointer;">Reset</button>
     </div>
 
-    <label style="display:flex; align-items:center; gap:8px; font-size:0.95em;">
-      <input type="checkbox" id="dr-direct" checked />
-      Allow direct A↔B link
-    </label>
+    <div style="font-size:0.95em; color: rgba(0,0,0,0.70);">
+      <span id="sim-status">Ready.</span>
+    </div>
   </div>
 
   <div style="display:grid; grid-template-columns: 1fr; gap:10px; margin-bottom:10px;">
     <label style="display:flex; align-items:center; gap:10px; font-size:0.95em;">
-      Speed
-      <input id="dr-speed" type="range" min="0.5" max="3.5" step="0.1" value="1.6" style="flex:1;" />
-      <span id="dr-speed-val" style="min-width:48px; text-align:right; font-variant-numeric: tabular-nums;">1.6x</span>
+      B catch-up growth
+      <input id="sim-catchup" type="range" min="1.0" max="3.2" step="0.1" value="2.2" style="flex:1;" />
+      <span id="sim-catchup-val" style="min-width:54px; text-align:right; font-variant-numeric: tabular-nums;">2.2x</span>
     </label>
 
     <label style="display:flex; align-items:center; gap:10px; font-size:0.95em;">
-      C bias (route via C)
-      <input id="dr-bias" type="range" min="0" max="1" step="0.01" value="0.78" style="flex:1;" />
-      <span id="dr-bias-val" style="min-width:48px; text-align:right; font-variant-numeric: tabular-nums;">0.78</span>
+      Trade intensity (spawns)
+      <input id="sim-trade" type="range" min="0.6" max="3.0" step="0.1" value="1.8" style="flex:1;" />
+      <span id="sim-trade-val" style="min-width:54px; text-align:right; font-variant-numeric: tabular-nums;">1.8x</span>
+    </label>
+
+    <label style="display:flex; align-items:center; gap:10px; font-size:0.95em;">
+      Occupation aggressiveness
+      <input id="sim-aggro" type="range" min="0.6" max="2.6" step="0.1" value="1.4" style="flex:1;" />
+      <span id="sim-aggro-val" style="min-width:54px; text-align:right; font-variant-numeric: tabular-nums;">1.4x</span>
     </label>
   </div>
 
-  <canvas id="dr-canvas" width="860" height="280" style="width:100%; height:auto; display:block; border-radius:12px; background:rgba(0,0,0,0.03);"></canvas>
+  <canvas id="sim-canvas" width="980" height="380"
+    style="width:100%; height:auto; display:block; border-radius:12px; background:#0b5f8a;"></canvas>
 
   <div style="margin-top:10px; font-size:0.92em; color: rgba(0,0,0,0.65); line-height:1.35;">
-    <strong>Interpretation (optional):</strong> Higher C-bias means both A and B depend more on the intermediary. In dynamic realism terms, intermediation can stabilize exchange (cooperation) but also creates vulnerability: if expectations shift, competition over C can intensify.
+    <strong>Reading the toy model:</strong> Trade raises wealth (more dots), wealth sustains military capacity (triangles),
+    and as B catches up, A’s perceived future risk rises—raising the likelihood of preemptively occupying C.
   </div>
 </div>
 
 <script>
 (() => {
-  const canvas = document.getElementById("dr-canvas");
+  const canvas = document.getElementById("sim-canvas");
   const ctx = canvas.getContext("2d");
 
-  const btnStart = document.getElementById("dr-start");
-  const btnPause = document.getElementById("dr-pause");
-  const btnReset = document.getElementById("dr-reset");
+  const btnStart = document.getElementById("sim-start");
+  const btnPause = document.getElementById("sim-pause");
+  const btnReset = document.getElementById("sim-reset");
+  const statusEl = document.getElementById("sim-status");
 
-  const speedSlider = document.getElementById("dr-speed");
-  const speedVal = document.getElementById("dr-speed-val");
+  const catchup = document.getElementById("sim-catchup");
+  const catchupVal = document.getElementById("sim-catchup-val");
+  const trade = document.getElementById("sim-trade");
+  const tradeVal = document.getElementById("sim-trade-val");
+  const aggro = document.getElementById("sim-aggro");
+  const aggroVal = document.getElementById("sim-aggro-val");
 
-  const biasSlider = document.getElementById("dr-bias");
-  const biasVal = document.getElementById("dr-bias-val");
+  // Colors
+  const RED = "rgba(220, 55, 55, 0.95)";
+  const BLUE = "rgba(55, 125, 235, 0.95)";
+  const OCEAN = "#0b5f8a";
+  const OCEAN_DARK = "#084c6e";
+  const SAND = "#e9d2a6";
+  const SAND_EDGE = "rgba(140, 100, 50, 0.35)";
+  const TEXT = "rgba(255,255,255,0.92)";
 
-  const directToggle = document.getElementById("dr-direct");
-
-  // Island positions (responsive-ish in canvas space)
+  // Island geometry
   const islands = {
-    A: { x: 140, y: 150, r: 46, label: "State A" },
-    C: { x: 430, y: 105, r: 44, label: "State C" },
-    B: { x: 720, y: 150, r: 46, label: "State B" },
+    A: { name:"A", label:"State A", x: 170, y: 235, r: 58, color: RED },
+    C: { name:"C", label:"State C", x: 490, y: 145, r: 52, color: "rgba(0,0,0,0.18)" },
+    B: { name:"B", label:"State B", x: 810, y: 235, r: 58, color: BLUE },
   };
 
-  // Ball state
-  let ball = { x: islands.A.x, y: islands.A.y, r: 10 };
+  // Make missile range circle around C touch A and B:
+  // choose radius so it touches A & B centerline roughly; set rRange = distance(C,A) - A.r (touch outer edge)
+  const dist = (p,q) => Math.hypot(p.x-q.x, p.y-q.y);
+  const rangeRadius = Math.min(
+    dist(islands.C, islands.A) - islands.A.r,
+    dist(islands.C, islands.B) - islands.B.r
+  );
+
+  // Simulation state
   let running = false;
+  let ended = false;
   let lastTs = null;
 
-  // Route state
-  let route = [];         // array of points {x,y,name}
-  let segmentIndex = 0;   // which segment we're traveling
-  let t = 0;              // 0..1 progress along segment
+  // Economies
+  let econA = 100.0;
+  let econB = 45.0;   // starts lower (catch-up)
+  const baseGrowthA = 0.0022;  // per second baseline
+  const baseGrowthB = 0.0018;  // baseline, then catch-up multiplies
 
-  // Utility
-  const lerp = (a,b,u) => a + (b-a)*u;
+  // Trade & dots
+  let dots = [];
+  let dotSpawnAcc = 0;
 
-  function chooseNextRoute() {
-    // Current "home" is the last point we've reached (or start).
-    const current = route.length ? route[route.length - 1].name : "A";
+  // Military (constant share of economy)
+  const milShare = 0.08; // 8% of economy supports active units
 
-    // Determine destination among A/B with some bias through C
-    // We model a "flow cycle": it tries to alternate between A and B,
-    // but with probability bias it goes via C as an intermediate hop.
-    const bias = parseFloat(biasSlider.value);
-    const allowDirect = directToggle.checked;
+  // Occupation dynamics
+  let occupyProgress = 0; // 0..1 capture
+  let flashPhase = 0;
 
-    let target = (current === "A") ? "B" : (current === "B") ? "A" : null;
+  // Helpers
+  const clamp = (x,a,b) => Math.max(a, Math.min(b,x));
+  const lerp = (a,b,t) => a + (b-a)*t;
+  const sigmoid = (x) => 1/(1+Math.exp(-x));
 
-    if (current === "C") {
-      // If at C, go to whichever side is "next" based on last non-C visited.
-      // If previous was A, go to B; if previous was B, go to A. Default A.
-      let prevNonC = null;
-      for (let i = route.length - 2; i >= 0; i--) {
-        if (route[i].name !== "C") { prevNonC = route[i].name; break; }
-      }
-      target = (prevNonC === "A") ? "B" : "A";
-    }
+  function reset() {
+    running = false;
+    ended = false;
+    lastTs = null;
 
-    // Decide if we route through C
-    const viaC = (Math.random() < bias);
+    econA = 100.0;
+    econB = 45.0;
 
-    // Build route: current -> (maybe C) -> target
-    const startName = current;
-    const pts = [{ ...islands[startName], name: startName }];
+    dots = [];
+    dotSpawnAcc = 0;
 
-    if (viaC) {
-      // If current isn't C, add C; if it is C, skip.
-      if (startName !== "C") pts.push({ ...islands.C, name: "C" });
-      pts.push({ ...islands[target], name: target });
-    } else {
-      // direct: only if allowed or if current is C
-      if (!allowDirect && startName !== "C") {
-        // force via C if direct is not allowed
-        pts.push({ ...islands.C, name: "C" });
-        pts.push({ ...islands[target], name: target });
-      } else {
-        pts.push({ ...islands[target], name: target });
-      }
-    }
+    occupyProgress = 0;
+    flashPhase = 0;
 
-    route = pts;
-    segmentIndex = 0;
-    t = 0;
-
-    // Snap ball to start
-    ball.x = route[0].x;
-    ball.y = route[0].y;
+    statusEl.textContent = "Ready.";
+    draw();
   }
 
-  function drawArrow(x1,y1,x2,y2, alpha=0.45) {
-    // line
-    ctx.save();
-    ctx.globalAlpha = alpha;
-    ctx.lineWidth = 3;
-    ctx.strokeStyle = "#000";
-    ctx.beginPath();
-    ctx.moveTo(x1,y1);
-    ctx.lineTo(x2,y2);
-    ctx.stroke();
+  // Trade dot model: each dot loops between home and C with curved motion.
+  function spawnDot(from) {
+    const src = islands[from];
+    const mid = islands.C;
 
-    // arrow head
-    const angle = Math.atan2(y2-y1, x2-x1);
-    const headlen = 12;
+    // A curve control point (creates "back and around" motion)
+    // randomize curvature
+    const dir = (from === "A") ? -1 : 1;
+    const ctrl = {
+      x: lerp(src.x, mid.x, 0.5) + dir * (40 + Math.random()*60),
+      y: lerp(src.y, mid.y, 0.5) - (30 + Math.random()*80)
+    };
+
+    dots.push({
+      from,
+      color: (from === "A") ? RED : BLUE,
+      t: Math.random()*1,        // phase along curve
+      speed: 0.12 + Math.random()*0.18,
+      ctrl
+    });
+  }
+
+  function bezier(p0, p1, p2, t) {
+    // quadratic bezier
+    const x = (1-t)*(1-t)*p0.x + 2*(1-t)*t*p1.x + t*t*p2.x;
+    const y = (1-t)*(1-t)*p0.y + 2*(1-t)*t*p1.y + t*t*p2.y;
+    return {x,y};
+  }
+
+  function drawOcean() {
+    // base fill
+    ctx.fillStyle = OCEAN;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    // subtle waves
+    ctx.save();
+    ctx.globalAlpha = 0.10;
+    ctx.strokeStyle = "#ffffff";
+    ctx.lineWidth = 2;
+
+    for (let i=0;i<11;i++) {
+      const y = 30 + i*32;
+      ctx.beginPath();
+      for (let x=0;x<=canvas.width;x+=40) {
+        const amp = 6 + (i%3)*2;
+        const yy = y + Math.sin((x/90) + i)*amp;
+        if (x===0) ctx.moveTo(x,yy);
+        else ctx.lineTo(x,yy);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+
+    // darker gradient bottom
+    ctx.save();
+    const g = ctx.createLinearGradient(0, 0, 0, canvas.height);
+    g.addColorStop(0, "rgba(0,0,0,0)");
+    g.addColorStop(1, "rgba(0,0,0,0.22)");
+    ctx.fillStyle = g;
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+    ctx.restore();
+  }
+
+  function drawIsland(isl, outlineColor=null, fillBoost=0) {
+    // sand base
+    ctx.save();
+    ctx.fillStyle = SAND;
+    ctx.globalAlpha = 0.98;
     ctx.beginPath();
-    ctx.moveTo(x2, y2);
-    ctx.lineTo(x2 - headlen*Math.cos(angle - Math.PI/7), y2 - headlen*Math.sin(angle - Math.PI/7));
-    ctx.lineTo(x2 - headlen*Math.cos(angle + Math.PI/7), y2 - headlen*Math.sin(angle + Math.PI/7));
-    ctx.closePath();
-    ctx.fillStyle = "#000";
+    ctx.arc(isl.x, isl.y, isl.r, 0, Math.PI*2);
     ctx.fill();
     ctx.restore();
+
+    // beach edge
+    ctx.save();
+    ctx.strokeStyle = SAND_EDGE;
+    ctx.lineWidth = 6;
+    ctx.beginPath();
+    ctx.arc(isl.x, isl.y, isl.r-2, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+
+    // inner tint (subtle)
+    ctx.save();
+    ctx.globalAlpha = 0.10 + fillBoost;
+    ctx.fillStyle = "#000";
+    ctx.beginPath();
+    ctx.arc(isl.x, isl.y, isl.r-10, 0, Math.PI*2);
+    ctx.fill();
+    ctx.restore();
+
+    // outline
+    ctx.save();
+    ctx.lineWidth = 3;
+    ctx.globalAlpha = 0.75;
+    ctx.strokeStyle = outlineColor ? outlineColor : "rgba(0,0,0,0.25)";
+    ctx.beginPath();
+    ctx.arc(isl.x, isl.y, isl.r, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+
+    // label
+    ctx.save();
+    ctx.fillStyle = TEXT;
+    ctx.font = "700 14px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+    ctx.textAlign = "center";
+    ctx.fillText(isl.label, isl.x, isl.y + isl.r + 22);
+    ctx.restore();
+  }
+
+  function drawMissileRange() {
+    // dashed circle around C touching A and B (outer edges)
+    ctx.save();
+    ctx.setLineDash([8, 10]);
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = "rgba(255,255,255,0.55)";
+    ctx.beginPath();
+    ctx.arc(islands.C.x, islands.C.y, rangeRadius, 0, Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+
+    // label
+    ctx.save();
+    ctx.fillStyle = "rgba(255,255,255,0.75)";
+    ctx.font = "600 12px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+    ctx.textAlign = "center";
+    ctx.fillText("Missile range (C)", islands.C.x, islands.C.y - rangeRadius - 10);
+    ctx.restore();
+  }
+
+  function drawDots() {
+    for (const d of dots) {
+      const src = islands[d.from];
+      const mid = islands.C;
+
+      // move along loop: src -> C -> src
+      // We'll map d.t in [0,1) and use a triangular wave for back-and-forth
+      const phase = d.t % 1;
+      const u = phase < 0.5 ? (phase*2) : (1 - (phase-0.5)*2);
+
+      const pos = bezier(src, d.ctrl, mid, u);
+
+      // small dot
+      ctx.save();
+      ctx.fillStyle = d.color;
+      ctx.globalAlpha = 0.85;
+      ctx.beginPath();
+      ctx.arc(pos.x, pos.y, 4.2, 0, Math.PI*2);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  function drawMilitary(isl, econ, color) {
+    // number of units proportional to economy * share
+    // keep it bounded for visuals
+    const units = Math.floor(clamp((econ * milShare) / 2.4, 0, 28));
+
+    // place triangles in a ring-ish pattern
+    const innerR = isl.r - 18;
+    for (let i=0; i<units; i++) {
+      const ang = (i/Math.max(units,1)) * Math.PI*2;
+      const jitter = (Math.sin(i*13.7) * 3);
+      const x = isl.x + Math.cos(ang) * (innerR + jitter);
+      const y = isl.y + Math.sin(ang) * (innerR + jitter);
+
+      // triangle size scales slightly with econ
+      const s = 7 + clamp((econ/120), 0, 5);
+
+      ctx.save();
+      ctx.fillStyle = color;
+      ctx.globalAlpha = 0.85;
+      ctx.translate(x,y);
+      ctx.rotate(ang + Math.PI/2);
+
+      ctx.beginPath();
+      ctx.moveTo(0, -s);
+      ctx.lineTo(s*0.85, s);
+      ctx.lineTo(-s*0.85, s);
+      ctx.closePath();
+      ctx.fill();
+
+      ctx.restore();
+    }
+  }
+
+  function drawHUD() {
+    ctx.save();
+    ctx.fillStyle = "rgba(0,0,0,0.20)";
+    ctx.fillRect(14, 14, 350, 92);
+    ctx.restore();
+
+    ctx.save();
+    ctx.fillStyle = TEXT;
+    ctx.font = "700 14px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+    ctx.textAlign = "left";
+    ctx.fillText(`Economy A: ${econA.toFixed(1)}   |   Economy B: ${econB.toFixed(1)}`, 24, 42);
+
+    ctx.font = "600 13px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+    const ratio = (econB/econA);
+    ctx.fillText(`B/A ratio: ${ratio.toFixed(2)}   |   Occupation risk: ${(occupationRisk()*100).toFixed(1)}%`, 24, 66);
+
+    ctx.fillText(`Occupation progress: ${(occupyProgress*100).toFixed(1)}%`, 24, 90);
+    ctx.restore();
+  }
+
+  function occupationRisk() {
+    // Risk rises as B approaches and exceeds A.
+    // Use a smooth S-curve around ratio ~0.85..1.15
+    const ratio = econB / econA;
+    const a = parseFloat(aggro.value);
+
+    // x = 0 at ratio=1, negative below, positive above
+    const x = (ratio - 1.0) * 6.0;
+    const base = sigmoid(x) * 0.18; // max ~0.18 baseline per second-ish
+    // also allow some risk when ratio approaches 1 from below
+    const pre = sigmoid((ratio - 0.85) * 10) * 0.10;
+    return clamp((base + pre) * a, 0, 0.35); // cap
+  }
+
+  function updateEconomies(dt) {
+    // Wealth grows from trade volume: more dots => more trade => more growth
+    const tradeIntensity = parseFloat(trade.value);
+
+    // effective trade factor depends on number of dots (circulating flows)
+    const tradeFactor = clamp(dots.length / 120, 0, 1.6);
+
+    // A grows steady
+    econA *= (1 + (baseGrowthA + 0.0040*tradeFactor*tradeIntensity) * dt);
+
+    // B catch-up: higher growth multiplier while smaller; fades as it approaches A
+    const catchMult = parseFloat(catchup.value);
+    const gap = clamp((econA - econB) / econA, 0, 1); // 1 when far behind
+    const catchBoost = 1 + gap * (catchMult - 1);
+
+    econB *= (1 + (baseGrowthB*catchBoost + 0.0046*tradeFactor*tradeIntensity*catchBoost) * dt);
+  }
+
+  function updateDots(dt) {
+    // Spawn rate increases with "trade intensity" and with total wealth
+    const tradeIntensity = parseFloat(trade.value);
+
+    const totalWealth = econA + econB;
+    const wealthScale = clamp(totalWealth / 240, 0.6, 2.6);
+
+    // dots per second baseline
+    const spawnRate = 1.6 * tradeIntensity * wealthScale;
+
+    dotSpawnAcc += dt * spawnRate;
+
+    while (dotSpawnAcc >= 1) {
+      dotSpawnAcc -= 1;
+      // spawn from both sides, but bias slightly toward the faster-growing B as it integrates more
+      const pB = clamp(0.45 + (econB/(econA+econB))*0.20, 0.35, 0.70);
+      const from = (Math.random() < pB) ? "B" : "A";
+      spawnDot(from);
+    }
+
+    // Move dots
+    for (const d of dots) {
+      d.t += dt * d.speed;
+    }
+
+    // Cap dot count for performance
+    const cap = 280;
+    if (dots.length > cap) dots.splice(0, dots.length - cap);
+  }
+
+  function updateOccupation(dt) {
+    if (ended) return;
+
+    const risk = occupationRisk();
+
+    // Occupation progress increases stochastically with risk
+    // Think of it as repeated crises/pressure that accumulate.
+    const roll = Math.random();
+    const step = risk * dt;
+
+    // occasional jumps + steady drift
+    occupyProgress += step * 0.9;
+    if (roll < risk * 0.12 * dt * 60) {
+      occupyProgress += 0.02 + 0.04*Math.random();
+    }
+
+    occupyProgress = clamp(occupyProgress, 0, 1);
+
+    // Flashing intensifies as progress grows
+    flashPhase += dt * (1.5 + occupyProgress*6.0);
+
+    // End condition: C occupied by A (blue outline in your description was “occupied state end”,
+    // but you described C flashing blue first as pressure grows; here we show pressure on C as "blue flash"
+    // then final takeover is "blue outline + fill shift". You can invert colors if you meant A occupies = red.
+    if (occupyProgress >= 1) {
+      ended = true;
+      running = false;
+      statusEl.textContent = "Outcome: C is occupied. Simulation ended.";
+    } else {
+      statusEl.textContent = `Running.`;
+    }
   }
 
   function draw() {
-    // Clear
-    ctx.clearRect(0,0,canvas.width,canvas.height);
+    // ocean
+    drawOcean();
 
-    // Background grid-ish
-    ctx.save();
-    ctx.globalAlpha = 0.06;
-    ctx.strokeStyle = "#000";
-    for (let x = 0; x <= canvas.width; x += 40) {
-      ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,canvas.height); ctx.stroke();
-    }
-    for (let y = 0; y <= canvas.height; y += 40) {
-      ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(canvas.width,y); ctx.stroke();
-    }
-    ctx.restore();
+    // missile range (dashed circle around C)
+    drawMissileRange();
 
-    // Draw possible links
-    const allowDirect = directToggle.checked;
-    drawArrow(islands.A.x, islands.A.y, islands.C.x, islands.C.y, 0.25);
-    drawArrow(islands.C.x, islands.C.y, islands.B.x, islands.B.y, 0.25);
-    if (allowDirect) drawArrow(islands.A.x, islands.A.y, islands.B.x, islands.B.y, 0.12);
+    // trade dots
+    drawDots();
 
-    // Highlight active route segments
-    if (route.length >= 2) {
+    // islands (with C visual state changing)
+    // C starts neutral; as occupation grows it flashes blue and gains blue outline.
+    const flash = (Math.sin(flashPhase) * 0.5 + 0.5); // 0..1
+    const cFlashStrength = (occupyProgress > 0.15) ? clamp((occupyProgress - 0.15) / 0.65, 0, 1) : 0;
+
+    // If you want “A occupies C” to be RED instead of BLUE, swap BLUE->RED below.
+    const cOutline = (ended || occupyProgress > 0.75) ? BLUE : (cFlashStrength > 0 ? `rgba(55,125,235,${0.25 + 0.55*cFlashStrength})` : null);
+
+    const cFillBoost = (cFlashStrength > 0)
+      ? (0.05 + 0.12*cFlashStrength*flash)
+      : 0;
+
+    drawIsland(islands.A);
+    drawIsland(islands.C, cOutline, cFillBoost);
+    drawIsland(islands.B);
+
+    // Military units proportional to economy
+    drawMilitary(islands.A, econA, RED);
+    drawMilitary(islands.B, econB, BLUE);
+
+    // If occupied, add heavier outline on C
+    if (ended) {
       ctx.save();
-      ctx.globalAlpha = 0.55;
       ctx.lineWidth = 6;
-      ctx.strokeStyle = "#000";
-      for (let i = 0; i < route.length - 1; i++) {
-        ctx.beginPath();
-        ctx.moveTo(route[i].x, route[i].y);
-        ctx.lineTo(route[i+1].x, route[i+1].y);
-        ctx.stroke();
-      }
-      ctx.restore();
-    }
-
-    // Draw islands
-    Object.entries(islands).forEach(([k, isl]) => {
-      ctx.save();
-      ctx.fillStyle = "#000";
-      ctx.globalAlpha = 0.10;
+      ctx.strokeStyle = "rgba(55,125,235,0.95)";
       ctx.beginPath();
-      ctx.arc(isl.x, isl.y, isl.r + 10, 0, Math.PI*2);
-      ctx.fill();
-      ctx.restore();
-
-      ctx.save();
-      ctx.fillStyle = "#000";
-      ctx.globalAlpha = 0.18;
-      ctx.beginPath();
-      ctx.arc(isl.x, isl.y, isl.r, 0, Math.PI*2);
-      ctx.fill();
-      ctx.restore();
-
-      ctx.save();
-      ctx.strokeStyle = "#000";
-      ctx.globalAlpha = 0.50;
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.arc(isl.x, isl.y, isl.r, 0, Math.PI*2);
+      ctx.arc(islands.C.x, islands.C.y, islands.C.r+2, 0, Math.PI*2);
       ctx.stroke();
       ctx.restore();
+    }
 
-      // Labels
+    // HUD
+    drawHUD();
+
+    // End banner
+    if (ended) {
       ctx.save();
-      ctx.fillStyle = "#000";
-      ctx.globalAlpha = 0.80;
-      ctx.font = "600 14px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+      ctx.fillStyle = "rgba(0,0,0,0.45)";
+      ctx.fillRect(0, canvas.height/2 - 44, canvas.width, 88);
+      ctx.fillStyle = "rgba(255,255,255,0.95)";
+      ctx.font = "800 22px system-ui, -apple-system, Segoe UI, Roboto, Arial";
       ctx.textAlign = "center";
-      ctx.fillText(isl.label, isl.x, isl.y + 5);
+      ctx.fillText("C OCCUPIED — INTERMEDIARY CONTROL SECURED", canvas.width/2, canvas.height/2 - 6);
+      ctx.font = "600 14px system-ui, -apple-system, Segoe UI, Roboto, Arial";
+      ctx.fillText("Toy model outcome: growth → threat perception → preemption", canvas.width/2, canvas.height/2 + 22);
       ctx.restore();
-    });
-
-    // Draw ball
-    ctx.save();
-    ctx.fillStyle = "#000";
-    ctx.globalAlpha = 0.85;
-    ctx.beginPath();
-    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2);
-    ctx.fill();
-    ctx.restore();
+    }
   }
 
   function step(ts) {
     if (!running) return;
     if (lastTs === null) lastTs = ts;
-
-    const dt = Math.min(0.03, (ts - lastTs) / 1000); // cap to avoid jumps
+    const dt = Math.min(0.04, (ts - lastTs) / 1000);
     lastTs = ts;
 
-    const speed = parseFloat(speedSlider.value);
-    const segSpeed = 0.55 * speed; // tweak constant for nice motion
-
-    // Ensure route exists
-    if (route.length < 2) chooseNextRoute();
-
-    // Travel along current segment
-    const a = route[segmentIndex];
-    const b = route[segmentIndex + 1];
-
-    t += dt * segSpeed;
-
-    if (t >= 1) {
-      // Arrive at next node
-      ball.x = b.x;
-      ball.y = b.y;
-      segmentIndex += 1;
-      t = 0;
-
-      // If route finished, pick next route starting from current endpoint
-      if (segmentIndex >= route.length - 1) {
-        // make the endpoint the start for next cycle
-        route = [{ ...b, name: b.name }];
-        segmentIndex = 0;
-        chooseNextRoute();
-      }
-    } else {
-      ball.x = lerp(a.x, b.x, t);
-      ball.y = lerp(a.y, b.y, t);
+    if (!ended) {
+      updateDots(dt);
+      updateEconomies(dt);
+      updateOccupation(dt);
     }
 
     draw();
@@ -302,212 +505,36 @@ Below is a small interactive analogy. Think of **A** and **B** as competing grea
   }
 
   function start() {
+    if (ended) return; // if ended, use reset first
     if (running) return;
     running = true;
     lastTs = null;
+    statusEl.textContent = "Running.";
     requestAnimationFrame(step);
   }
 
   function pause() {
     running = false;
     lastTs = null;
+    statusEl.textContent = ended ? "Ended." : "Paused.";
   }
 
-  function reset() {
-    pause();
-    route = [];
-    segmentIndex = 0;
-    t = 0;
-    ball.x = islands.A.x;
-    ball.y = islands.A.y;
-    draw();
+  // UI
+  function syncLabels() {
+    catchupVal.textContent = `${parseFloat(catchup.value).toFixed(1)}x`;
+    tradeVal.textContent = `${parseFloat(trade.value).toFixed(1)}x`;
+    aggroVal.textContent = `${parseFloat(aggro.value).toFixed(1)}x`;
   }
 
-  // UI bindings
-  speedSlider.addEventListener("input", () => {
-    speedVal.textContent = `${parseFloat(speedSlider.value).toFixed(1)}x`;
-  });
-  biasSlider.addEventListener("input", () => {
-    biasVal.textContent = `${parseFloat(biasSlider.value).toFixed(2)}`;
-  });
-  directToggle.addEventListener("change", () => {
-    // refresh route so it reflects the new constraint
-    chooseNextRoute();
-    draw();
-  });
+  catchup.addEventListener("input", syncLabels);
+  trade.addEventListener("input", syncLabels);
+  aggro.addEventListener("input", syncLabels);
 
   btnStart.addEventListener("click", start);
   btnPause.addEventListener("click", pause);
-  btnReset.addEventListener("click", reset);
+  btnReset.addEventListener("click", () => reset());
 
-  // Initialize labels
-  speedVal.textContent = `${parseFloat(speedSlider.value).toFixed(1)}x`;
-  biasVal.textContent = `${parseFloat(biasSlider.value).toFixed(2)}`;
-
-  // First render
-  chooseNextRoute();
-  draw();
+  syncLabels();
+  reset();
 })();
 </script>
-
----
-
-## What is Dynamic Realism?
-
-**Dynamic realism** argues that great powers behave the way they do because leaders are constantly managing a trade-off:
-
-1. **Hedge against future insecurity** by expanding power (especially economic power)
-2. **Avoid triggering backlash and spirals** that produce the very insecurity they are trying to prevent
-
-Unlike theories that predict either persistent conflict (hard-line realism) or durable cooperation (institutional liberalism), dynamic realism expects **cycles**: engagement and restraint can hold for long periods, but shifts in expectations about the future can produce **sharp policy pivots**.
-
----
-
-## The Taproot: Why Commerce Matters
-
-Traditional systemic realism focuses heavily on **military capabilities** and **territory**. Dynamic realism treats those as crucial — but downstream.
-
-The deeper “taproot” is **commercial strength**, because:
-
-- Sustained military power requires a strong economic base  
-- Economic growth depends on access to markets, trade, finance, and investment  
-- Great powers fear not only invasion, but also **subversion**, **ideological competition**, and **economic exclusion**
-
-In this view, foreign policy is often about building, protecting, and expanding an **economic power sphere** that can support national security over decades.
-
----
-
-## Three Realms of Great Power Commerce
-
-Dynamic realism explains state behavior by distinguishing *where* trade and investment ties sit in the international system. Any great power typically operates across three commercial realms:
-
-### 1) The First Realm: The Home Sphere (Low Risk, High Control)
-
-This includes:
-- allies dependent on the great power for security
-- smaller states in its neighborhood
-- colonies, territories, or protectorates (historically)
-
-Because influence is high, access is relatively secure. Commerce here is a **foundation** for power.
-
-### 2) The Second Realm: The Neutral / Nonaligned Zone (Competitive Space)
-
-This includes:
-- states that try to trade with everyone
-- “swing states” economically courted by multiple great powers
-
-Competition is intense but often non-military. Great powers try to convert economic ties into political alignment.
-
-### 3) The Third Realm: Trade with Rival Great Powers (High Risk, High Reward)
-
-This includes:
-- trade and investment with adversaries and their controlled spheres
-
-This realm is the hardest for standard offensive realism to explain: if rivals might cut you off, why trade with them at all?
-
-Dynamic realism’s answer: **because leaders weigh future expectations**. Trading with rivals can accelerate growth and stabilize relations — until leaders believe future access is likely to deteriorate.
-
----
-
-## Key Concepts
-
-### Future Uncertainty (Offensive Realist Baseline)
-
-Dynamic realism retains the offensive realist insight that **uncertainty about future intentions** pushes leaders to seek better power positions today.
-
-But it rejects the idea that leaders *must* always assume worst-case futures. Instead, leaders make **probabilistic bets** about the future commercial and strategic environment — and revise policy when those bets look wrong.
-
-### The Security Dilemma (Defensive Realist Restraint)
-
-Dynamic realism also retains defensive realism’s core insight: attempts to increase security can make others feel less secure, producing spirals.
-
-But it extends this idea beyond arms races into economics.
-
-### The Trade Security Dilemma (Dynamic Realism’s Addition)
-
-Actions taken to expand or defend commercial influence can trigger retaliatory measures:
-- sanctions
-- embargoes
-- exclusion from markets
-- financial restrictions
-- competing blocs
-
-These can spiral just like military competition — and sometimes they *precede* military crises.
-
----
-
-## Assumptions of Dynamic Realism
-
-1. **Anarchy persists**: there is no higher authority to guarantee access or peace.  
-2. **Great powers are security-driven**, but must plan for adverse futures.  
-3. **Economic capability is foundational** to long-term security competition.  
-4. Leaders are **forward-looking** and make decisions based on **expectations** about future access, not just current power.  
-5. Policies reflect a **trade-off**: build power vs. avoid spirals and backlash.
-
----
-
-## How Dynamic Realism Explains Policy Shifts
-
-Dynamic realism predicts a recognizable pattern:
-
-### When expectations are optimistic:
-- engagement is rational
-- leaders avoid provocation
-- interdependence is tolerated (even with rivals)
-
-### When expectations worsen:
-- leaders shift toward hedging
-- coercion becomes more attractive
-- the state pushes harder to lock in access and influence
-
-### When leaders foresee exclusion:
-- economic measures escalate (sanctions, block-building)
-- crises become more likely
-- war can become a grim “solution” to prevent long-term decline
-
-This is why foreign policy can look stable for decades — and then pivot rapidly.
-
----
-
-## Applications
-
-Dynamic realism helps explain:
-
-- **Cycles of engagement and confrontation** in a single state’s history  
-- Why great powers sometimes pursue **commercial integration** with rivals, despite risk  
-- Why economic tools (sanctions, trade policy, tech controls) can become central to rivalry  
-- How competition over “neutral” states in the second realm shapes alliances and blocs  
-- Why conflict often becomes more likely when leaders think the future trade environment is closing
-
----
-
-## Limitations
-
-- Harder to model cleanly than single-variable theories: expectations and trade-offs are complex.
-- Measuring leader expectations empirically is difficult (requires careful historical interpretation).
-- Domestic politics can still matter — dynamic realism mainly claims you can explain *a lot* without dropping to the unit level, not that domestic factors never matter.
-
----
-
-## Conclusion
-
-Dynamic realism offers a systemic explanation for a basic puzzle in international relations:  
-**Why do great powers cooperate for long stretches, yet repeatedly swing toward coercion and war?**
-
-Its answer is that great powers live in a world where **future uncertainty** pushes them to expand power — especially commercial power — while the **risk of spirals** pushes them to restrain. Cooperation is therefore real, but conditional; conflict is avoidable, but recurrent. The engine of rivalry is not only territory and armies, but the struggle to build and protect **economic power spheres** in a shifting global trade environment.
-
----
-
-## Related Work
-
-This post draws on foundational debates in international relations theory, especially:
-
-- Mearsheimer, John J. (2001), *The Tragedy of Great Power Politics*.
-- Jervis, Robert (1978), “Cooperation Under the Security Dilemma.”
-- Waltz, Kenneth (1979), *Theory of International Politics*.
-- Gilpin, Robert (1981), *War and Change in World Politics*.
-- Haas, Mark L. (2005), *The Ideological Origins of Great Power Politics, 1789–1989*.
-
----
-
-*Last updated: January 2026*
