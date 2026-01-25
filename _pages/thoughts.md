@@ -13,6 +13,7 @@ nav_order: 6
   <a id="{{ category }}" href=".#{{ category }}">
     <h2 class="category">{{ category }}</h2>
   </a>
+
   {% assign categorized_projects = site.projects | where: "category", category %}
   {% assign sorted_projects = categorized_projects | sort: "importance" %}
 
@@ -31,13 +32,17 @@ nav_order: 6
     {% endfor %}
   </div>
   {% endif %}
+
   {% endfor %}
 
 {% else %}
 
-{% assign sorted_projects = site.projects
-  | where_exp: "p", "p.path == '_projects/1_thoughts.md'"
-  | sort: "importance" %}
+{%- comment -%}
+  Display ONLY projects in category "thoughts"
+  Make sure each file in _projects has: category: thoughts
+{%- endcomment -%}
+
+{% assign sorted_projects = site.projects | where: "category", "thoughts" | sort: "importance" %}
 
 {% if page.horizontal %}
   <div class="container">
@@ -54,5 +59,6 @@ nav_order: 6
     {% endfor %}
   </div>
 {% endif %}
+
 {% endif %}
 </div>
