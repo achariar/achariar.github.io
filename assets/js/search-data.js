@@ -429,6 +429,11 @@ ninja.data = [{
           description: "A political science analysis of institutional strength, governance, and public trust.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_thoughts/";
+            },},{id: "projects-state-capacity-and-democratic-legitimacy",
+          title: 'State Capacity and Democratic Legitimacy',
+          description: "A political science analysis of institutional strength, governance, and public trust.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_thoughts/";
             },},{id: "projects-the-capm",
           title: 'The CAPM',
           description: "with background image",
