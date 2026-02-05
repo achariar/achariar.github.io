@@ -429,8 +429,8 @@ ninja.data = [{
           description: "A political science analysis of how future uncertainty, economic power spheres, and trade-security dilemmas drive cycles of cooperation and conflict.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_thoughts/";
-            },},{id: "projects-tattva-nyāya",
-          title: 'Tattva-Nyāya',
+            },},{id: "projects-placeholder",
+          title: 'Placeholder',
           description: "Still thinking...",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_thoughts/";
