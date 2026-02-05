@@ -426,7 +426,7 @@ ninja.data = [{
               window.location.href = "/projects/1_thoughts/";
             },},{id: "projects-dynamic-realism",
           title: 'Dynamic Realism',
-          description: "A political science analysis of how future uncertainty, economic power spheres, and trade-security dilemmas drive cycles of cooperation and conflict.",
+          description: "Political science.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_thoughts/";
             },},{id: "projects-placeholder",
