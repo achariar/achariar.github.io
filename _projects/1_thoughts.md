@@ -2,7 +2,7 @@
 layout: page
 title: Conditional Morality
 description: A philosophical framework for evaluating values based on their relationship to desired outcomes rather than moral absolutism.
-img: assets/img/morality.png
+img: assets/img/red.png
 importance: 1
 category: thoughts
 related_publications: false
