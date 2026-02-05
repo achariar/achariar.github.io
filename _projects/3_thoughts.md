@@ -1,13 +1,11 @@
 ---
 layout: page
-title: Tattva-Nyāya
+title: Placeholder
 description: Still thinking...
-img: assets/img/sri.png
+img: assets/img/red.png
 importance: 1
 category: thoughts
 related_publications: true
 authors:
   - Jonathan K. Ramani
 ---
-
-Still thinking...
