@@ -427,9 +427,9 @@ ninja.data = [{
           description: "Still thinking...",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_thoughts/";
-            },},{id: "projects-the-capm",
-          title: 'The CAPM',
-          description: "with background image",
+            },},{id: "projects-empty",
+          title: 'Empty',
+          description: "Empty",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_project/";
             },},{
