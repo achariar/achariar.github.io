@@ -7,58 +7,98 @@ nav: false
 nav_order: 7
 ---
 
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
+<div class="container mt-4">
 
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
+  <h1>Heterogeneous-Agent Neoclassical Macroeconomic Models</h1>
 
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
+  <p>
+    This workshop page outlines a research program focused on 
+    <strong>heterogeneous-agent real business cycle (HA-RBC)</strong> 
+    models within a fully micro-founded, neoclassical DSGE framework.
+    The emphasis is on differences in <em>time preferences</em> (discount factors)
+    and <em>risk preferences</em>, and how these shape savings behavior,
+    occupational choice, capital accumulation, and aggregate dynamics.
+  </p>
 
-  {% endfor %}
+  <hr>
 
-{% else %}
+  <h2>1. Core Economic Environment</h2>
 
-{%- comment -%}
-  Display ONLY projects in category "workshop"
-  Make sure each file in _projects has: category: workshop
-{%- endcomment -%}
+  <p>
+    Households solve a standard intertemporal optimization problem:
+  </p>
 
-{% assign sorted_projects = site.projects | where: "category", "workshop" | sort: "importance" %}
+  <pre><code>
+Max  E₀ ∑ βᵢ^t u(cᵢ,t)
 
-{% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-{% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-{% endif %}
+s.t.
 
-{% endif %}
-</div>
+aᵢ,t+1 = (1 + r_t)aᵢ,t + w_t lᵢ,t − cᵢ,t
+aᵢ,t+1 ≥ borrowing constraint
+  </code></pre>
+
+  <ul>
+    <li>βᵢ : heterogeneous discount factors (time preference)</li>
+    <li>u(c) : heterogeneous risk aversion (e.g. CRRA with γᵢ)</li>
+    <li>Income risk and productivity shocks follow Markov processes</li>
+    <li>Competitive firms: Y_t = A_t F(K_t, L_t)</li>
+  </ul>
+
+  <p>
+    Aggregate dynamics emerge from the distribution of assets and preferences.
+  </p>
+
+  <hr>
+
+  <h2>2. Heterogeneity Structure</h2>
+
+  <p>Agents differ in:</p>
+
+  <ul>
+    <li><strong>Discount factor (βᵢ)</strong> → patience, savings behavior</li>
+    <li><strong>Risk aversion (γᵢ)</strong> → portfolio choice, precautionary saving</li>
+    <li><strong>Income risk exposure</strong> → stochastic productivity states</li>
+  </ul>
+
+  <p>
+    Wealth inequality and occupational sorting arise endogenously
+    from differences in patience and risk tolerance.
+  </p>
+
+  <hr>
+
+  <h2>3. Example: CRRA Utility</h2>
+
+  <pre><code>
+u(c) = (c^(1 − γᵢ) − 1) / (1 − γᵢ)
+  </code></pre>
+
+  <p>
+    Higher γᵢ → more risk averse → stronger precautionary savings motive.
+  </p>
+
+  <hr>
+
+  <h2>4. Numerical Solution (Julia Placeholder)</h2>
+
+  <p>
+    Value function iteration for a heterogeneous agent:
+  </p>
+
+```julia
+function bellman(V, β, γ, r, w, grid_a, shock_transition)
+    V_new = similar(V)
+    for (i, a) in enumerate(grid_a)
+        value_choices = []
+        for a_next in grid_a
+            c = (1 + r) * a + w - a_next
+            if c > 0
+                u = (c^(1 - γ) - 1) / (1 - γ)
+                continuation = β * V[i]  # placeholder expectation
+                push!(value_choices, u + continuation)
+            end
+        end
+        V_new[i] = maximum(value_choices)
+    end
+    return V_new
+end
