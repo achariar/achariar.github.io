@@ -36,7 +36,7 @@ Beyond academia, I play the saxophone, enjoy reading science fiction, and tinker
     <div style="display: flex; flex-direction: column; gap: 2px;">
         <p style="margin: 2px 0; line-height: 1.2;"><strong>Lund University</strong></p>
         <p style="margin: 2px 0; line-height: 1.2;">MS in Mathematical Statistics, 2025―Present</p> 
-        <p style="margin: 2px 0; line-height: 1.2;">Additional coursework in mathematics.</p>
+        <p style="margin: 2px 0; line-height: 1.2;">Additional coursework in economics.</p>
     </div>
 </div>
 
